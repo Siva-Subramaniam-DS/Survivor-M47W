@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="Survivor [M47W] - Premier Modern Warships Tournament Server. Over 297+ tournaments conducted, 150+ Legends and 200+ Heroes crowned. Owner: gocodes.">
+  <meta name="keywords" content="Survivor M47W, Modern Warships Tournament, gocodes, MW Tournament Server, Arena International">
+  <meta name="author" content="Survivor M47W Tournament Server">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Survivor [M47W] — Modern Warships Tournament Server">
+  <meta property="og:description" content="The Arena of Champions. 297+ Tournaments Conducted • 150+ Legends • 200+ Heroes. Join our Discord to register!">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="Assets/logo.png">
+
+  <title>SURVIVOR [M47W] — Modern Warships Tournament Server</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="Assets/Logo (2).png">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="top-announcement" aria-label="Tournament Announcement">
+    <div class="container announcement-inner">
+      <div class="announcement-badge">
+        <span class="live-dot"></span>
+        <span><strong>TOURNAMENT SERVER:</strong> 297+ Tournaments Completed • Registrations Managed in Discord Only</span>
+      </div>
+      <div class="announcement-links">
+        <a href="#tournaments">
+          <span class="live-dot dot-red"></span>
+          <span>Weekend Brackets</span>
+        </a>
+        <a href="https://discord.com/channels/1050414982417887283/1148118134398668922" target="_blank" rel="noopener noreferrer">
+          <span>💎 Server Boost Perks</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Site Header (Single-Line Desktop & Mobile Responsive) -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#hero" class="brand" aria-label="Survivor M47W Home">
+        <img src="Assets/logo.png" alt="Survivor M47W Logo" class="brand-logo-img">
+        <div class="brand-text">
+          <span class="brand-title">SURVIVOR</span>
+          <span class="brand-tag">TOURNAMENT SERVER</span>
+        </div>
+      </a>
+
+      <!-- Single-Line Desktop Navigation -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#fame" class="nav-link">Hall of Fame</a></li>
+          <li><a href="#tournaments" class="nav-link">Tournaments</a></li>
+          <li><a href="#videos" class="nav-link">Match Videos</a></li>
+          <li><a href="#staff" class="nav-link">Staff</a></li>
+          <li><a href="#partner" class="nav-link">Arena Partner</a></li>
+          <li><a href="#support" class="nav-link">Support</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <a href="https://discord.gg/6sPeeaY6bj" target="_blank" rel="noopener noreferrer" class="btn btn-discord btn-sm" id="linkNavDiscord">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.317 4.369A19.791 19.791 0 0 0 15.885 3c-.191.328-.403.771-.552 1.116a18.27 18.27 0 0 0-6.666 0A12.64 12.64 0 0 0 8.115 3a19.736 19.736 0 0 0-4.432 1.369C.887 8.58.127 12.687.507 16.737a19.92 19.92 0 0 0 5.993 3.026c.481-.657.91-1.35 1.282-2.076a12.99 12.99 0 0 1-2.02-.98c.17-.123.336-.25.496-.383 3.894 1.78 8.117 1.78 11.965 0 .162.133.328.26.497.383a12.95 12.95 0 0 1-2.024.982c.372.725.8 1.418 1.282 2.074a19.9 19.9 0 0 0 5.995-3.026c.446-4.693-.762-8.764-3.656-12.368ZM8.02 14.315c-1.182 0-2.157-1.086-2.157-2.419 0-1.332.955-2.418 2.157-2.418 1.212 0 2.177 1.096 2.157 2.418 0 1.333-.955 2.419-2.157 2.419Zm7.96 0c-1.182 0-2.157-1.086-2.157-2.419 0-1.332.955-2.418 2.157-2.418 1.212 0 2.177 1.096 2.157 2.418 0 1.333-.945 2.419-2.157 2.419Z"/>
+          </svg>
+          <span>Join Tournament Discord</span>
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-kicker-wrap">
+            <span class="hero-badge-tag">OFFICIAL TOURNAMENT SERVER</span>
+            <span class="section-kicker">OWNER: GOCODES</span>
+          </div>
+          <h1 class="hero-title">
+            THE ARENA OF CHAMPIONS.
+            <span class="title-accent">SURVIVE & CONQUER.</span>
+          </h1>
+          <p class="hero-desc">
+            Welcome to <strong>Survivor [M47W]</strong> — the official Modern Warships competitive tournament server owned by <strong>gocodes</strong>. With <strong>297+ tournaments conducted</strong>, we host premier weekly brackets where champions earn gold, battle passes, and legendary titles. All tournament registration is managed directly in our Discord channels!
+          </p>
+
+          <div class="hero-actions">
+            <a href="https://discord.gg/6sPeeaY6bj" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="linkHeroDiscord">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.317 4.369A19.791 19.791 0 0 0 15.885 3c-.191.328-.403.771-.552 1.116a18.27 18.27 0 0 0-6.666 0A12.64 12.64 0 0 0 8.115 3a19.736 19.736 0 0 0-4.432 1.369C.887 8.58.127 12.687.507 16.737a19.92 19.92 0 0 0 5.993 3.026c.481-.657.91-1.35 1.282-2.076a12.99 12.99 0 0 1-2.02-.98c.17-.123.336-.25.496-.383 3.894 1.78 8.117 1.78 11.965 0 .162.133.328.26.497.383a12.95 12.95 0 0 1-2.024.982c.372.725.8 1.418 1.282 2.074a19.9 19.9 0 0 0 5.995-3.026c.446-4.693-.762-8.764-3.656-12.368ZM8.02 14.315c-1.182 0-2.157-1.086-2.157-2.419 0-1.332.955-2.418 2.157-2.418 1.212 0 2.177 1.096 2.157 2.418 0 1.333-.955 2.419-2.157 2.419Zm7.96 0c-1.182 0-2.157-1.086-2.157-2.419 0-1.332.955-2.418 2.157-2.418 1.212 0 2.177 1.096 2.157 2.418 0 1.333-.945 2.419-2.157 2.419Z"/>
+              </svg>
+              <span>Enter Tournament Discord</span>
+            </a>
+            <a href="#tournaments" class="btn btn-outline">
+              <span>View Tournament Rooms</span>
+            </a>
+            <a href="#videos" class="btn btn-outline-gold">
+              <span>Match Videos</span>
+            </a>
+          </div>
+
+          <!-- Hero Proven Stats -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-val val-red">297+</span>
+              <span class="stat-label">Tournaments Held</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val">150+</span>
+              <span class="stat-label">Legends Crowned</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val">200+</span>
+              <span class="stat-label">Heroes Crowned</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val">2X</span>
+              <span class="stat-label">Weekend Series</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-crest-frame">
+            <div class="hero-crest-topbar">
+              <span>OFFICIAL TOURNAMENT SERVER</span>
+              <span>OWNER // GOCODES</span>
+            </div>
+            <img src="Assets/logo.png" alt="Survivor M47W Insignia" class="hero-crest-logo">
+            <h2 class="hero-crest-caption">SURVIVOR TOURNAMENT ARENA</h2>
+            <div class="hero-crest-pills">
+              <span class="tactical-pill pill-red">297+ TOURNAMENTS</span>
+              <span class="tactical-pill">SATURDAY & SUNDAY</span>
+              <span class="tactical-pill">DISCORD REGISTRATION</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATUS TICKER STRIP -->
+    <section class="status-strip" aria-label="Quick Status Ticker">
+      <div class="container">
+        <div class="status-grid">
+          <a href="https://discord.com/channels/1050414982417887283/1210456226505170964" target="_blank" rel="noopener noreferrer" class="status-card" id="linkSatTournament">
+            <div class="status-icon icon-gold">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="8" r="7"></circle>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+              </svg>
+            </div>
+            <div class="status-info">
+              <small>Saturday Registration</small>
+              <strong>IN DISCORD ONLY</strong>
+            </div>
+          </a>
+
+          <a href="https://discord.com/channels/1050414982417887283/1051428633106972762" target="_blank" rel="noopener noreferrer" class="status-card" id="linkSunTournament">
+            <div class="status-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <div class="status-info">
+              <small>Sunday Registration</small>
+              <strong>IN DISCORD ONLY</strong>
+            </div>
+          </a>
+
+          <a href="#videos" class="status-card">
+            <div class="status-icon icon-gold">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+            <div class="status-info">
+              <small>Match Replays</small>
+              <strong>OFFICIAL REPLAY ARCHIVE</strong>
+            </div>
+          </a>
+
+          <a href="https://discord.com/channels/1050414982417887283/1148118134398668922" target="_blank" rel="noopener noreferrer" class="status-card" id="linkServerBoost">
+            <div class="status-icon icon-discord">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <div class="status-info">
+              <small>Server Community</small>
+              <strong>BOOST REWARDS & PERKS</strong>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">TOURNAMENT SERVER ONLY</span>
+          <h2 class="section-title">THE HOME OF <span>MODERN WARSHIPS COMPETITION</span></h2>
+          <p class="section-lead">
+            Survivor M47W is dedicated strictly to hosting, refereeing, and broadcasting premier Modern Warships tournaments. Owned by <strong>gocodes</strong>, our server brings together competitive fleets from around the world for high-intensity weekend championships.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HALL OF FAME & PLAYER BENEFITS -->
+    <section class="section" id="fame" style="background: var(--bg-surface);">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">PROVEN TRACK RECORD</span>
+          <h2 class="section-title">HALL OF FAME & <span>PLAYER BENEFITS</span></h2>
+          <p class="section-lead">
+            Over 297 tournaments conducted with real prizes awarded across competitive brackets.
+          </p>
+        </div>
+
+        <!-- 3 Big Proven Stats Cards -->
+        <div class="fame-stats-grid">
+          <div class="fame-stat-card">
+            <div class="fame-icon-frame">
+              <img src="MW Icons/BP_vip_hires.png" alt="Tournaments Conducted">
+            </div>
+            <div>
+              <div class="fame-stat-num num-red">297+</div>
+              <div class="fame-stat-label">Tournaments Conducted So Far</div>
+            </div>
+          </div>
+
+          <div class="fame-stat-card gold-card">
+            <div class="fame-icon-frame">
+              <img src="MW Icons/Title/MW_TitleSystem_TitleIconLegend_Hires.png" alt="Legend Title Winners">
+            </div>
+            <div>
+              <div class="fame-stat-num num-gold">150+</div>
+              <div class="fame-stat-label">Legend Titles Won Here</div>
+            </div>
+          </div>
+
+          <div class="fame-stat-card">
+            <div class="fame-icon-frame">
+              <img src="MW Icons/Title/MW_TitleSystem_TitleIconHero_Hires.png" alt="Hero Title Winners">
+            </div>
+            <div>
+              <div class="fame-stat-num">200+</div>
+              <div class="fame-stat-label">Hero Titles Won Here</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Player Benefits Strip with Official MW Icons -->
+        <div class="rewards-strip">
+          <div class="rewards-head">
+            <h3 style="font-family: var(--font-display); font-size: 1.3rem; color: #ffffff; text-transform: uppercase;">
+              Tournament Competitor Benefits & Rewards
+            </h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); max-width: 600px; margin: 6px auto 0;">
+              Captains who compete in Survivor tournaments earn verified prestige, leaderboard rank, and community rewards.
+            </p>
+          </div>
+
+          <div class="rewards-grid">
+            <div class="reward-item">
+              <img src="MW Icons/goldOffer_6.png" alt="Gold Rewards">
+              <strong>Gold Prizes</strong>
+              <span>Tournament prize pools</span>
+            </div>
+            <div class="reward-item">
+              <img src="MW Icons/artcoinOffer_6.png" alt="Artcoin Rewards">
+              <strong>Artcoin Rewards</strong>
+              <span>Market currency stakes</span>
+            </div>
+            <div class="reward-item">
+              <img src="MW Icons/BP_vip_hires.png" alt="VIP Pass Rewards">
+              <strong>VIP Battle Pass</strong>
+              <span>Monthly VIP sponsorship</span>
+            </div>
+            <div class="reward-item">
+              <img src="MW Icons/BP_premium_hires.png" alt="Premium Pass">
+              <strong>Premium Pass</strong>
+              <span>Monthly tier unlocks</span>
+            </div>
+            <div class="reward-item">
+              <img src="MW Icons/premiumAccount.png" alt="Premium Account">
+              <strong>Premium Account</strong>
+              <span>Booster access days</span>
+            </div>
+            <div class="reward-item">
+              <img src="MW Icons/Title/MW_TitleSystem_TitleIconLegend_Hires.png" alt="Prestige Titles">
+              <strong>Title Recognition</strong>
+              <span>Legend & Hero standings</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOURNAMENT COMMAND HUB -->
+    <section class="section" id="tournaments">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">DISCORD REGISTRATION CHANNELS</span>
+          <h2 class="section-title">WEEKEND <span>TOURNAMENT ROOMS</span></h2>
+          <p class="section-lead">
+            All tournament registrations happen directly in Discord! Click below to enter your bracket's channel.
+          </p>
+        </div>
+
+        <div class="tournament-grid">
+          <!-- Saturday Tournament -->
+          <article class="tournament-card highlight-gold">
+            <div class="tournament-card-top">
+              <span class="tournament-badge-pill gold">SATURDAY SERIES</span>
+              <span class="live-dot"></span>
+            </div>
+            <h3 class="tournament-day">Saturday Tournament</h3>
+            <p class="tournament-desc">
+              Weekly Saturday tournament with designated squad sizes, tier caps, and intense knockout matches. Register inside the official channel.
+            </p>
+            <div class="tournament-meta">
+              <div class="meta-row">
+                <span>Registration Location:</span>
+                <strong>In Discord Only</strong>
+              </div>
+              <div class="meta-row">
+                <span>Channel:</span>
+                <strong>#saturday-tournament</strong>
+              </div>
+              <div class="meta-row">
+                <span>Entry:</span>
+                <strong>Open to Verified Captains</strong>
+              </div>
+            </div>
+            <a href="https://discord.com/channels/1050414982417887283/1210456226505170964" target="_blank" rel="noopener noreferrer" class="btn btn-outline-gold" style="width: 100%;">
+              <span>Register in Discord (#saturday)</span>
+            </a>
+          </article>
+
+          <!-- Sunday Tournament -->
+          <article class="tournament-card highlight-red">
+            <div class="tournament-card-top">
+              <span class="tournament-badge-pill">SUNDAY CHAMPIONSHIP</span>
+              <span class="live-dot dot-red"></span>
+            </div>
+            <h3 class="tournament-day">Sunday Tournament</h3>
+            <p class="tournament-desc">
+              Premier Sunday championship cup where top squads compete for glory, high-tier prizes, and leaderboard points. Register inside the official channel.
+            </p>
+            <div class="tournament-meta">
+              <div class="meta-row">
+                <span>Registration Location:</span>
+                <strong>In Discord Only</strong>
+              </div>
+              <div class="meta-row">
+                <span>Channel:</span>
+                <strong>#sunday-tournament</strong>
+              </div>
+              <div class="meta-row">
+                <span>Entry:</span>
+                <strong>Squad & Individual Registration</strong>
+              </div>
+            </div>
+            <a href="https://discord.com/channels/1050414982417887283/1051428633106972762" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%;">
+              <span>Register in Discord (#sunday)</span>
+            </a>
+          </article>
+
+          <!-- Official Results -->
+          <article class="tournament-card">
+            <div class="tournament-card-top">
+              <span class="tournament-badge-pill" style="background: rgba(56, 200, 255, 0.1); border-color: rgba(56, 200, 255, 0.3); color: var(--accent-cyan);">VERIFIED ARCHIVE</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="var(--accent-cyan)">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+              </svg>
+            </div>
+            <h3 class="tournament-day">Official Results</h3>
+            <p class="tournament-desc">
+              Access certified scorecards, bracket logs, and podium winners across all 297+ conducted tournaments.
+            </p>
+            <div class="tournament-meta">
+              <div class="meta-row">
+                <span>Verification:</span>
+                <strong>SuperAdmin & Marshals</strong>
+              </div>
+              <div class="meta-row">
+                <span>Channel:</span>
+                <strong>#tournament-result</strong>
+              </div>
+              <div class="meta-row">
+                <span>Status:</span>
+                <strong>Live Updated</strong>
+              </div>
+            </div>
+            <a href="https://discord.com/channels/1050414982417887283/1051473469369491466" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%; border-color: var(--accent-cyan); color: var(--accent-cyan);" id="linkResults">
+              <span>View Results Channel</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MATCH VIDEOS & MEDIA HUB -->
+    <section class="section" id="videos" style="background: var(--bg-surface);">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">BROADCAST & REPLAYS</span>
+          <h2 class="section-title">MATCH VIDEOS & <span>YOUTUBE CHANNEL</span></h2>
+          <p class="section-lead">
+            Catch full tournament match broadcasts, highlight vods, and official Survivor battle reels.
+          </p>
+        </div>
+
+        <div class="video-hub-grid">
+          <!-- Saturday Match Videos -->
+          <a href="https://discord.com/channels/1050414982417887283/1512434301445210224" target="_blank" rel="noopener noreferrer" class="video-card" id="linkSatVideos">
+            <span class="video-card-badge">SATURDAY REPLAYS</span>
+            <h3 class="video-card-title">Saturday Match Videos</h3>
+            <p class="video-card-desc">Full match recordings, team perspective streams, and knockout round footage from Saturday tournaments.</p>
+            <span class="video-card-cta">Watch Saturday Matches →</span>
+          </a>
+
+          <!-- Sunday Match Videos -->
+          <a href="https://discord.com/channels/1050414982417887283/1125056647321108621" target="_blank" rel="noopener noreferrer" class="video-card" id="linkSunVideos">
+            <span class="video-card-badge" style="color: var(--accent-gold);">SUNDAY REPLAYS</span>
+            <h3 class="video-card-title">Sunday Match Videos</h3>
+            <p class="video-card-desc">Championship tier finals, overtime dogfights, and masterclass naval strikes recorded from Sunday events.</p>
+            <span class="video-card-cta" style="color: var(--accent-gold);">Watch Sunday Matches →</span>
+          </a>
+
+          <!-- Official YouTube Channel -->
+          <a href="https://youtube.com/@insfourtyseven7711?si=yuTAbnCFT_ipY31N" target="_blank" rel="noopener noreferrer" class="video-card" id="linkYouTube">
+            <span class="video-card-badge" style="color: #ff3347;">OFFICIAL CHANNEL</span>
+            <h3 class="video-card-title">Survivor YouTube Channel</h3>
+            <p class="video-card-desc">Subscribe to our official YouTube channel for high-definition tournament montages, ship loadout guides, and streams.</p>
+            <span class="video-card-cta" style="color: #ff3347;">Visit YouTube Channel →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAFF & TOURNAMENT MARSHALS (NO DUPLICATE NAMES) -->
+    <section class="section" id="staff">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">SERVER LEADERSHIP</span>
+          <h2 class="section-title">TOURNAMENT <span>STAFF & MARSHALS</span></h2>
+          <p class="section-lead">
+            The dedicated team orchestrating brackets, arbitration, technical systems, and player support.
+          </p>
+        </div>
+
+        <!-- Exact Role Filter Tabs -->
+        <div class="roster-filter-bar" role="tablist">
+          <button class="roster-filter-btn active" data-filter="all">All Staff (14)</button>
+          <button class="roster-filter-btn" data-filter="Owner">Owner (1)</button>
+          <button class="roster-filter-btn" data-filter="Admin">Admins (3)</button>
+          <button class="roster-filter-btn" data-filter="SuperAdmin">SuperAdmins (6)</button>
+          <button class="roster-filter-btn" data-filter="Commander">Commanders (10)</button>
+          <button class="roster-filter-btn" data-filter="Support">Support (11)</button>
+          <button class="roster-filter-btn" data-filter="IT">IT Support (1)</button>
+        </div>
+
+        <!-- Dynamic Staff Cards Grid (Badges only, no LVL text) -->
+        <div class="roster-grid" id="staffGrid">
+          <!-- Populated by js/app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ARENA INTERNATIONAL PARTNER SECTION -->
+    <section class="section" id="partner" style="background: var(--bg-surface);">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">STRATEGIC ALLIANCE</span>
+          <h2 class="section-title">ARENA INTERNATIONAL <span>PARTNER HUB</span></h2>
+          <p class="section-lead">
+            Survivor M47W works in close cooperation with Arena International Server for cross-server tournaments and global events.
+          </p>
+        </div>
+
+        <div class="arena-partner-box">
+          <div class="arena-gif-frame">
+            <img src="Assets/AI server.gif" alt="Arena International Server Animation" loading="lazy">
+          </div>
+
+          <div class="arena-partner-copy">
+            <span class="section-kicker" style="background: rgba(255, 255, 255, 0.08); color: #ffffff; border-color: rgba(255, 255, 255, 0.2);">OFFICIAL PARTNER</span>
+            <h3>Arena International Server</h3>
+            <p>
+              Arena International is an international Modern Warships hub providing high-level scrim coordination, collaborative tournament brackets, and unified player support alongside Survivor M47W.
+            </p>
+            <div class="arena-partner-actions">
+              <a href="https://discord.gg/cwB66GNWwY" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="linkArenaServer">
+                <span>Join Arena International</span>
+              </a>
+              <a href="https://discord.com/channels/1063794604798902353/1457753365437087804" target="_blank" rel="noopener noreferrer" class="btn btn-outline" id="linkArenaSupport">
+                <span>Arena Support Ticket</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUPPORT & SERVER BOOST HUB -->
+    <section class="section" id="support">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">DISCORD INFRASTRUCTURE</span>
+          <h2 class="section-title">TOURNAMENT <span>SUPPORT & BOOST PERKS</span></h2>
+          <p class="section-lead">
+            Direct access to official mediation tickets, dispute handling, and Discord boost roles.
+          </p>
+        </div>
+
+        <div class="support-grid">
+          <!-- Support Ticket -->
+          <article class="support-card">
+            <div class="support-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <h3>Tournament Support Ticket</h3>
+            <p>
+              Have a match dispute, bracket inquiry, technical issue, or scrim question? Open a direct ticket with our Tournament Staff & Support marshals.
+            </p>
+            <a href="https://discord.com/channels/1050414982417887283/1246124680889241741" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="linkSupportTicket">
+              <span>Open Support Ticket</span>
+            </a>
+          </article>
+
+          <!-- Server Boost Perks -->
+          <article class="support-card">
+            <div class="support-icon icon-boost">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <h3>Discord Server Boost Perks</h3>
+            <p>
+              Boost the Survivor Tournament Server to unlock exclusive custom server badges, priority bracket seeding notifications, VIP channels, and high-bitrate streaming.
+            </p>
+            <a href="https://discord.com/channels/1050414982417887283/1148118134398668922" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="border-color: #f47fff; color: #f47fff;">
+              <span>Check Boost Perks</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="Assets/logo.png" alt="Survivor M47W Logo">
+          <div>
+            <strong style="font-family: var(--font-display); font-size: 1.1rem; color: #ffffff;">SURVIVOR [M47W]</strong>
+            <p style="font-size: 0.8rem; color: var(--text-muted);">Modern Warships Tournament Server • 297+ Events • Owner: gocodes</p>
+          </div>
+        </div>
+
+        <div class="footer-social-links">
+          <a href="https://discord.gg/6sPeeaY6bj" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Survivor Discord Server" id="linkFooterDiscord">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.317 4.369A19.791 19.791 0 0 0 15.885 3c-.191.328-.403.771-.552 1.116a18.27 18.27 0 0 0-6.666 0A12.64 12.64 0 0 0 8.115 3a19.736 19.736 0 0 0-4.432 1.369C.887 8.58.127 12.687.507 16.737a19.92 19.92 0 0 0 5.993 3.026c.481-.657.91-1.35 1.282-2.076a12.99 12.99 0 0 1-2.02-.98c.17-.123.336-.25.496-.383 3.894 1.78 8.117 1.78 11.965 0 .162.133.328.26.497.383a12.95 12.95 0 0 1-2.024.982c.372.725.8 1.418 1.282 2.074a19.9 19.9 0 0 0 5.995-3.026c.446-4.693-.762-8.764-3.656-12.368ZM8.02 14.315c-1.182 0-2.157-1.086-2.157-2.419 0-1.332.955-2.418 2.157-2.418 1.212 0 2.177 1.096 2.157 2.418 0 1.333-.955 2.419-2.157 2.419Zm7.96 0c-1.182 0-2.157-1.086-2.157-2.419 0-1.332.955-2.418 2.157-2.418 1.212 0 2.177 1.096 2.157 2.418 0 1.333-.945 2.419-2.157 2.419Z"/>
+            </svg>
+          </a>
+          <a href="https://youtube.com/@insfourtyseven7711?si=yuTAbnCFT_ipY31N" target="_blank" rel="noopener noreferrer" class="social-icon-link yt" aria-label="Survivor YouTube" id="linkFooterYouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.5 6.2a3.01 3.01 0 0 0-2.12-2.13C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.57A3.01 3.01 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3.01 3.01 0 0 0 2.12 2.13c1.88.57 9.38.57 9.38.57s7.5 0 9.38-.57a3.01 3.01 0 0 0 2.12-2.13C24 15.9 24 12 24 12s0-3.9-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-disclaimer">
+        <p>
+          <strong>Disclaimer:</strong> Survivor [M47W] is an independent tournament community. Modern Warships and all related media are property of Artstorm LLC.
+        </p>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Survivor [M47W] Tournament Server. All Rights Reserved.</div>
+        <div class="footer-credits">
+          <span>Crafted for Survivor M47W</span>
+          <img src="Assets/SZoneWorXz.png" alt="SZone WorXz">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

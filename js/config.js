@@ -1,0 +1,146 @@
+/**
+ * Survivor M47W - Global Configuration
+ * Tournament Server Settings, Links, and Staff Hierarchy
+ */
+window.SURVIVOR_CONFIG = {
+  server: {
+    name: "Survivor M47W",
+    tag: "M47W",
+    type: "Tournament Server",
+    owner: "gocodes",
+    stats: {
+      tournamentsConducted: "297+",
+      legendWinners: "150+",
+      heroWinners: "200+",
+    }
+  },
+  links: {
+    discordServer: "https://discord.gg/6sPeeaY6bj",
+    saturdayTournament: "https://discord.com/channels/1050414982417887283/1210456226505170964",
+    sundayTournament: "https://discord.com/channels/1050414982417887283/1051428633106972762",
+    saturdayVideos: "https://discord.com/channels/1050414982417887283/1512434301445210224",
+    sundayVideos: "https://discord.com/channels/1050414982417887283/1125056647321108621",
+    tournamentResults: "https://discord.com/channels/1050414982417887283/1051473469369491466",
+    serverBoost: "https://discord.com/channels/1050414982417887283/1148118134398668922",
+    supportTicket: "https://discord.com/channels/1050414982417887283/1246124680889241741",
+    youtubeChannel: "https://youtube.com/@insfourtyseven7711?si=yuTAbnCFT_ipY31N",
+    arenaServer: "https://discord.gg/cwB66GNWwY",
+    arenaSupportTicket: "https://discord.com/channels/1063794604798902353/1457753365437087804",
+    mwStats: "https://mwstats.info",
+  },
+  // Exact 14 staff members with their exact server roles
+  staff: [
+    {
+      name: "gocodes",
+      isOwner: true,
+      primaryRole: "Owner",
+      roles: ["Owner", "Admin", "SuperAdmin", "Commander"],
+      rankIcon: "MW Icons/Ranks/Rank61.png",
+      titleIcon: "MW Icons/Title/MW_TitleSystem_TitleIconLegend_Hires.png",
+    },
+    {
+      name: "cosmicpower.",
+      isOwner: false,
+      primaryRole: "Admin",
+      roles: ["Admin", "SuperAdmin", "Commander", "Support"],
+      rankIcon: "MW Icons/Ranks/Rank60.png",
+      titleIcon: "MW Icons/Title/MW_TitleSystem_TitleIconLegend_Hires.png",
+    },
+    {
+      name: "hokage_141",
+      isOwner: false,
+      primaryRole: "Admin",
+      roles: ["Admin", "SuperAdmin", "Commander", "Support"],
+      rankIcon: "MW Icons/Ranks/Rank60.png",
+      titleIcon: "MW Icons/Title/MW_TitleSystem_TitleIconLegend_Hires.png",
+    },
+    {
+      name: "bhavesh.21",
+      isOwner: false,
+      primaryRole: "SuperAdmin",
+      roles: ["SuperAdmin", "Commander", "Support"],
+      rankIcon: "MW Icons/Ranks/Rank58.png",
+      titleIcon: "MW Icons/Title/MW_TitleSystem_TitleIconHero_Hires.png",
+    },
+    {
+      name: "vinayak_shree",
+      isOwner: false,
+      primaryRole: "SuperAdmin",
+      roles: ["SuperAdmin", "Support"],
+      rankIcon: "MW Icons/Ranks/Rank57.png",
+      titleIcon: "MW Icons/Title/MW_TitleSystem_TitleIconHero_Hires.png",
+    },
+    {
+      name: "void_pr0",
+      isOwner: false,
+      primaryRole: "SuperAdmin",
+      roles: ["SuperAdmin", "Commander", "Support"],
+      rankIcon: "MW Icons/Ranks/Rank57.png",
+      titleIcon: "MW Icons/Title/MW_TitleSystem_TitleIconHero_Hires.png",
+    },
+    {
+      name: "godzy0978",
+      isOwner: false,
+      primaryRole: "Commander",
+      roles: ["Commander", "Support"],
+      rankIcon: "MW Icons/Ranks/Rank55.png",
+      titleIcon: "MW Icons/Title/MW_TitleSystem_TitleIcon_Epic_Hires.png",
+    },
+    {
+      name: "jokoers",
+      isOwner: false,
+      primaryRole: "Commander",
+      roles: ["Commander", "Support"],
+      rankIcon: "MW Icons/Ranks/Rank54.png",
+      titleIcon: "MW Icons/Title/MW_TitleSystem_TitleIcon_Epic_Hires.png",
+    },
+    {
+      name: "shiro_kaieda",
+      isOwner: false,
+      primaryRole: "Commander",
+      roles: ["Commander", "Support"],
+      rankIcon: "MW Icons/Ranks/Rank53.png",
+      titleIcon: "MW Icons/Title/MW_TitleSystem_TitleIcon_Epic_Hires.png",
+    },
+    {
+      name: "yah1ko.1586",
+      isOwner: false,
+      primaryRole: "Commander",
+      roles: ["Commander", "Support"],
+      rankIcon: "MW Icons/Ranks/Rank52.png",
+      titleIcon: "MW Icons/Title/MW_TitleSystem_TitleIcon_Epic_Hires.png",
+    },
+    {
+      name: "hacrrr_707",
+      isOwner: false,
+      primaryRole: "Commander",
+      roles: ["Commander"],
+      rankIcon: "MW Icons/Ranks/Rank51.png",
+      titleIcon: "MW Icons/Title/MW_TitleSystem_TitleIcon_Rare_Hires.png",
+    },
+    {
+      name: "alii_ahmed",
+      isOwner: false,
+      primaryRole: "Support",
+      roles: ["Support"],
+      rankIcon: "MW Icons/Ranks/Rank50.png",
+      titleIcon: "MW Icons/Title/MW_TitleSystem_TitleIcon_Rare_Hires.png",
+    },
+    {
+      name: "giwrgos.l",
+      isOwner: false,
+      primaryRole: "Support",
+      roles: ["Support"],
+      rankIcon: "MW Icons/Ranks/Rank50.png",
+      titleIcon: "MW Icons/Title/MW_TitleSystem_TitleIcon_Rare_Hires.png",
+    },
+    {
+      name: "Animesh",
+      isOwner: false,
+      primaryRole: "IT Support",
+      roles: ["IT Support"],
+      rankIcon: "MW Icons/Ranks/Rank59.png",
+      titleIcon: "MW Icons/Title/MW_TitleSystem_TitleIconHero_Hires.png",
+    }
+  ]
+};
