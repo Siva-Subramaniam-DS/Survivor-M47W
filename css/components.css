@@ -9,8 +9,8 @@
    ========================================================================== */
 .fame-stats-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
   margin-bottom: 36px;
 }
 
@@ -18,10 +18,10 @@
   background: var(--bg-card);
   border: 1px solid var(--border-medium);
   border-radius: var(--radius-lg);
-  padding: 30px 24px;
+  padding: 26px 20px;
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 18px;
   box-shadow: var(--shadow-tactical);
   position: relative;
   overflow: hidden;
@@ -36,6 +36,11 @@
 .fame-stat-card.gold-card {
   border-color: rgba(243, 181, 68, 0.35);
   background: radial-gradient(circle at 90% 10%, rgba(243, 181, 68, 0.08) 0%, rgba(16, 22, 32, 0.8) 70%);
+}
+
+.fame-stat-card.discord-card {
+  border-color: rgba(88, 101, 242, 0.4);
+  background: radial-gradient(circle at 90% 10%, rgba(88, 101, 242, 0.12) 0%, rgba(16, 22, 32, 0.8) 70%);
 }
 
 .fame-icon-frame {
@@ -482,6 +487,81 @@
   color: #c79bff;
 }
 
+/* Staff DM Action Button */
+.staff-card-actions {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btn-staff-dm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 12px;
+  font-family: var(--font-tactical);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(88, 101, 242, 0.15);
+  border: 1px solid rgba(88, 101, 242, 0.4);
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.btn-staff-dm:hover {
+  background: #5865F2;
+  border-color: #5865F2;
+  box-shadow: 0 4px 16px rgba(88, 101, 242, 0.4);
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+.btn-staff-dm svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.btn-staff-dm:hover svg {
+  transform: scale(1.1);
+}
+
+/* Tactical Toast Notification */
+.tactical-toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  background: #11141b;
+  border: 1px solid #5865F2;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(88, 101, 242, 0.3);
+  color: #ffffff;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-family: var(--font-tactical);
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transform: translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tactical-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
 /* ==========================================================================
    ARENA INTERNATIONAL PARTNER SECTION
    ========================================================================== */
@@ -691,10 +771,469 @@
 }
 
 /* ==========================================================================
-   SMARTPHONE RESPONSIVE BREAKPOINTS (max-width: 640px)
+   DISCORD SERVER INSIGHTS & ANALYTICS HUD
+   ========================================================================== */
+.discord-insights-panel {
+  background: rgba(14, 18, 27, 0.85);
+  border: 1px solid rgba(88, 101, 242, 0.3);
+  border-radius: var(--radius-xl);
+  padding: 28px 26px;
+  margin-bottom: 36px;
+  box-shadow: var(--shadow-tactical);
+  position: relative;
+  overflow: hidden;
+}
+
+.discord-insights-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #5865F2, #00d2ff, transparent);
+}
+
+.discord-insights-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.insights-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.insights-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: #ffffff;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.insights-sub {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin: 2px 0 0;
+}
+
+.discord-community-badge {
+  font-family: var(--font-tactical);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(88, 101, 242, 0.18);
+  border: 1px solid rgba(88, 101, 242, 0.45);
+  color: #8ea1e1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.discord-insights-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.discord-stat-box {
+  background: #11141b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-fast);
+}
+
+.discord-stat-box:hover {
+  border-color: rgba(88, 101, 242, 0.45);
+  transform: translateY(-2px);
+  background: #141822;
+}
+
+.discord-stat-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.discord-stat-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #949ba4;
+}
+
+.info-icon {
+  font-size: 0.82rem;
+  color: #6b7280;
+  cursor: help;
+  user-select: none;
+}
+
+.discord-stat-number {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.discord-stat-trend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.discord-stat-trend.trend-up {
+  color: #3ba55d;
+}
+
+.discord-stat-trend.trend-down {
+  color: #f23f43;
+}
+
+.trend-arrow {
+  font-size: 0.7rem;
+}
+
+/* ==========================================================================
+   TOURNAMENT PRIZE MATRIX (4 EVENTS)
+   ========================================================================== */
+.prize-matrix-wrapper {
+  margin-top: 10px;
+}
+
+.prize-filter-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.prize-filter-btn {
+  background: rgba(18, 24, 38, 0.7);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  transition: all var(--transition-normal);
+  color: var(--text-secondary);
+}
+
+.prize-filter-btn span {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+}
+
+.prize-filter-btn small {
+  font-family: var(--font-tactical);
+  font-size: 0.72rem;
+  color: var(--accent-gold);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-top: 3px;
+}
+
+.prize-filter-btn:hover {
+  border-color: rgba(255, 42, 63, 0.5);
+  background: rgba(26, 34, 52, 0.85);
+}
+
+.prize-filter-btn.active {
+  background: linear-gradient(135deg, rgba(255, 42, 63, 0.15) 0%, rgba(20, 26, 40, 0.9) 100%);
+  border-color: var(--accent-red);
+  box-shadow: 0 4px 20px rgba(255, 42, 63, 0.25);
+}
+
+.prize-filter-btn.active span {
+  color: #ffffff;
+}
+
+.prize-filter-btn.active small {
+  color: var(--accent-red);
+}
+
+.prize-event-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 3px solid var(--accent-red);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.prize-event-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prize-event-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.prize-event-tag {
+  font-family: var(--font-tactical);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(255, 42, 63, 0.15);
+  border: 1px solid rgba(255, 42, 63, 0.3);
+  color: var(--accent-red);
+}
+
+.prize-podium-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 26px;
+}
+
+.prize-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-fast);
+}
+
+.prize-card:hover {
+  transform: translateY(-4px);
+}
+
+/* 1st Place Champion Gold */
+.prize-card.podium-gold {
+  border-color: rgba(243, 181, 68, 0.4);
+  background: radial-gradient(circle at 50% 0%, rgba(243, 181, 68, 0.12) 0%, rgba(16, 22, 32, 0.95) 75%);
+  box-shadow: 0 8px 30px rgba(243, 181, 68, 0.12);
+}
+
+.prize-card.podium-gold::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #f3b544, transparent);
+}
+
+/* 2nd Place Silver */
+.prize-card.podium-silver {
+  border-color: rgba(180, 200, 220, 0.3);
+  background: radial-gradient(circle at 50% 0%, rgba(180, 200, 220, 0.08) 0%, rgba(16, 22, 32, 0.95) 75%);
+}
+
+.prize-card.podium-silver::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #b4c8dc, transparent);
+}
+
+/* 3rd-4th Place Bronze */
+.prize-card.podium-bronze {
+  border-color: rgba(205, 127, 50, 0.3);
+  background: radial-gradient(circle at 50% 0%, rgba(205, 127, 50, 0.08) 0%, rgba(16, 22, 32, 0.95) 75%);
+}
+
+.prize-card.podium-bronze::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #cd7f32, transparent);
+}
+
+.prize-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.prize-place-num {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.prize-card.podium-gold .prize-place-num {
+  color: var(--accent-gold);
+}
+
+.prize-trophy-pill {
+  font-family: var(--font-tactical);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.prize-card.podium-gold .prize-trophy-pill {
+  background: rgba(243, 181, 68, 0.2);
+  color: var(--accent-gold);
+  border: 1px solid rgba(243, 181, 68, 0.4);
+}
+
+.prize-card.podium-silver .prize-trophy-pill {
+  background: rgba(180, 200, 220, 0.15);
+  color: #d1e0ee;
+  border: 1px solid rgba(180, 200, 220, 0.3);
+}
+
+.prize-card.podium-bronze .prize-trophy-pill {
+  background: rgba(205, 127, 50, 0.15);
+  color: #e09f67;
+  border: 1px solid rgba(205, 127, 50, 0.3);
+}
+
+/* Prize Items List */
+.prize-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.prize-item-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.prize-item-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+  flex-shrink: 0;
+}
+
+.prize-item-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.prize-item-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--font-tactical);
+}
+
+.prize-item-val {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.val-ac {
+  color: #56d364;
+}
+
+.val-hd {
+  color: var(--accent-gold);
+}
+
+.val-premium {
+  color: #00d2ff;
+}
+
+.val-special {
+  color: #ff4757;
+}
+
+.val-title {
+  color: #ff9ff3;
+}
+
+.prize-card-footer {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.prize-card-footer .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   SMARTPHONE RESPONSIVE BREAKPOINTS (max-width: 960px & 640px)
    ========================================================================== */
 @media (max-width: 960px) {
   .fame-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .discord-insights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .prize-filter-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .prize-podium-grid {
     grid-template-columns: 1fr;
   }
 
@@ -717,6 +1256,10 @@
 }
 
 @media (max-width: 640px) {
+  .fame-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
   .fame-stat-card {
     padding: 20px 16px;
     gap: 14px;
@@ -734,6 +1277,18 @@
 
   .fame-stat-num {
     font-size: 1.85rem;
+  }
+
+  .discord-insights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .discord-insights-panel {
+    padding: 20px 16px;
+  }
+
+  .prize-filter-bar {
+    grid-template-columns: 1fr;
   }
 
   .rewards-strip {

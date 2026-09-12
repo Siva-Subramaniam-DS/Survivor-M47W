@@ -1,6 +1,6 @@
 /**
  * Survivor M47W - Global Configuration
- * Tournament Server Settings, Links, and Staff Hierarchy
+ * Tournament Server Settings, Links, Staff Hierarchy & Prize Matrix
  */
 window.SURVIVOR_CONFIG = {
   server: {
@@ -10,6 +10,7 @@ window.SURVIVOR_CONFIG = {
     owner: "gocodes",
     stats: {
       tournamentsConducted: "297+",
+      totalMembers: "15,300",
       legendWinners: "150+",
       heroWinners: "200+",
     }
@@ -28,10 +29,232 @@ window.SURVIVOR_CONFIG = {
     arenaSupportTicket: "https://discord.com/channels/1063794604798902353/1457753365437087804",
     mwStats: "https://mwstats.info",
   },
-  // Exact 14 staff members with their exact server roles
+  // Official Discord Server Insights Analytics
+  discordInsights: {
+    totalMembers: "15,300",
+    metrics: [
+      {
+        id: "visitors",
+        title: "Weekly Visitors",
+        value: "1,478",
+        change: "5% since last week",
+        trend: "up"
+      },
+      {
+        id: "communicators",
+        title: "Weekly Communicators",
+        value: "168",
+        change: "147.1% since last week",
+        trend: "up"
+      },
+      {
+        id: "new_members",
+        title: "Weekly New Members",
+        value: "95",
+        change: "79.2% since last week",
+        trend: "up"
+      },
+      {
+        id: "retention",
+        title: "Weekly New Member Retention",
+        value: "32.3%",
+        change: "23.1% since last week",
+        trend: "down"
+      }
+    ]
+  },
+  // Official Tournament Prize Pools Matrix for all 4 Events
+  prizePools: [
+    {
+      id: "parallel-tour",
+      name: "Survivor Tour (Parallel Tour)",
+      shortName: "Parallel Tour",
+      badge: "WEEKLY PARALLEL",
+      channelUrl: "https://discord.com/channels/1050414982417887283/1210456226505170964",
+      channelName: "#saturday-tournament",
+      prizes: [
+        {
+          place: "1st Place",
+          placeBadge: "CHAMPION",
+          podiumClass: "podium-gold",
+          titleBadge: "[HERO]",
+          titleIcon: "MW Icons/Title/MW_TitleSystem_TitleIconHero_Hires.png",
+          specialItem: null,
+          specialIcon: null,
+          ac: "2,000 AC",
+          hd: "15,000 HD",
+          premium: "PREMIUM 30d"
+        },
+        {
+          place: "2nd Place",
+          placeBadge: "RUNNER UP",
+          podiumClass: "podium-silver",
+          titleBadge: null,
+          titleIcon: null,
+          specialItem: null,
+          specialIcon: null,
+          ac: "1,000 AC",
+          hd: "10,000 HD",
+          premium: "PREMIUM 14d"
+        },
+        {
+          place: "3rd - 4th Place",
+          placeBadge: "SEMI-FINALISTS",
+          podiumClass: "podium-bronze",
+          titleBadge: null,
+          titleIcon: null,
+          specialItem: null,
+          specialIcon: null,
+          ac: "500 AC",
+          hd: "5,000 HD",
+          premium: "PREMIUM 7d"
+        }
+      ]
+    },
+    {
+      id: "main-tour",
+      name: "Survivor Tour (Main Tour)",
+      shortName: "Main Tour",
+      badge: "PREMIER CHAMPIONSHIP",
+      channelUrl: "https://discord.com/channels/1050414982417887283/1051428633106972762",
+      channelName: "#sunday-tournament",
+      prizes: [
+        {
+          place: "1st Place",
+          placeBadge: "CHAMPION",
+          podiumClass: "podium-gold",
+          titleBadge: "[HERO/LEGEND]",
+          titleIcon: "MW Icons/Title/MW_TitleSystem_TitleIconLegend_Hires.png",
+          specialItem: null,
+          specialIcon: null,
+          ac: "3,000 AC",
+          hd: "20,000 HD",
+          premium: "PREMIUM 30d"
+        },
+        {
+          place: "2nd Place",
+          placeBadge: "RUNNER UP",
+          podiumClass: "podium-silver",
+          titleBadge: "[HERO]",
+          titleIcon: "MW Icons/Title/MW_TitleSystem_TitleIconHero_Hires.png",
+          specialItem: null,
+          specialIcon: null,
+          ac: "2,000 AC",
+          hd: "15,000 HD",
+          premium: "PREMIUM 14d"
+        },
+        {
+          place: "3rd - 4th Place",
+          placeBadge: "SEMI-FINALISTS",
+          podiumClass: "podium-bronze",
+          titleBadge: null,
+          titleIcon: null,
+          specialItem: null,
+          specialIcon: null,
+          ac: "1,000 AC",
+          hd: "10,000 HD",
+          premium: "PREMIUM 7d"
+        }
+      ]
+    },
+    {
+      id: "monthly-gacha",
+      name: "Survivor Tour (Monthly Gacha)",
+      shortName: "Monthly Gacha",
+      badge: "SPECIAL GACHA EVENT",
+      channelUrl: "https://discord.com/channels/1050414982417887283/1210456226505170964",
+      channelName: "#saturday-tournament",
+      prizes: [
+        {
+          place: "1st Place",
+          placeBadge: "CHAMPION",
+          podiumClass: "podium-gold",
+          titleBadge: "[HERO/LEGEND]",
+          titleIcon: "MW Icons/Title/MW_TitleSystem_TitleIconLegend_Hires.png",
+          specialItem: "[GACHA SHIP]",
+          specialIcon: "MW Icons/Units/Battleship.png",
+          ac: null,
+          hd: "20,000 HD",
+          premium: "PREMIUM 30d"
+        },
+        {
+          place: "2nd Place",
+          placeBadge: "RUNNER UP",
+          podiumClass: "podium-silver",
+          titleBadge: "[HERO]",
+          titleIcon: "MW Icons/Title/MW_TitleSystem_TitleIconHero_Hires.png",
+          specialItem: "[GACHA ITEM]",
+          specialIcon: "MW Icons/BP_vip_hires.png",
+          ac: null,
+          hd: "15,000 HD",
+          premium: "PREMIUM 14d"
+        },
+        {
+          place: "3rd - 4th Place",
+          placeBadge: "SEMI-FINALISTS",
+          podiumClass: "podium-bronze",
+          titleBadge: null,
+          titleIcon: null,
+          specialItem: "[EVENT ITEM]",
+          specialIcon: "MW Icons/BP_premium_hires.png",
+          ac: null,
+          hd: "10,000 HD",
+          premium: "PREMIUM 7d"
+        }
+      ]
+    },
+    {
+      id: "teams-tour",
+      name: "Survivor Teams (MonthlyTour)",
+      shortName: "Teams (MonthlyTour)",
+      badge: "TEAM SQUAD SERIES",
+      channelUrl: "https://discord.com/channels/1050414982417887283/1051428633106972762",
+      channelName: "#sunday-tournament",
+      prizes: [
+        {
+          place: "1st Place",
+          placeBadge: "CHAMPION",
+          podiumClass: "podium-gold",
+          titleBadge: "[HERO/LEGEND]",
+          titleIcon: "MW Icons/Title/MW_TitleSystem_TitleIconLegend_Hires.png",
+          specialItem: null,
+          specialIcon: null,
+          ac: "3,000 AC",
+          hd: "20,000 HD",
+          premium: "PREMIUM 30d"
+        },
+        {
+          place: "2nd Place",
+          placeBadge: "RUNNER UP",
+          podiumClass: "podium-silver",
+          titleBadge: "[HERO]",
+          titleIcon: "MW Icons/Title/MW_TitleSystem_TitleIconHero_Hires.png",
+          specialItem: null,
+          specialIcon: null,
+          ac: "2,000 AC",
+          hd: "15,000 HD",
+          premium: "PREMIUM 14d"
+        },
+        {
+          place: "3rd - 4th Place",
+          placeBadge: "SEMI-FINALISTS",
+          podiumClass: "podium-bronze",
+          titleBadge: null,
+          titleIcon: null,
+          specialItem: null,
+          specialIcon: null,
+          ac: "1,000 AC",
+          hd: "10,000 HD",
+          premium: "PREMIUM 7d"
+        }
+      ]
+    }
+  ],
+  // Exact 14 staff members with their exact server roles & direct Discord DM link support
   staff: [
     {
       name: "gocodes",
+      discordId: "",
       isOwner: true,
       primaryRole: "Owner",
       roles: ["Owner", "Admin", "SuperAdmin", "Commander"],
@@ -40,6 +263,7 @@ window.SURVIVOR_CONFIG = {
     },
     {
       name: "cosmicpower.",
+      discordId: "",
       isOwner: false,
       primaryRole: "Admin",
       roles: ["Admin", "SuperAdmin", "Commander", "Support"],
@@ -48,6 +272,7 @@ window.SURVIVOR_CONFIG = {
     },
     {
       name: "hokage_141",
+      discordId: "",
       isOwner: false,
       primaryRole: "Admin",
       roles: ["Admin", "SuperAdmin", "Commander", "Support"],
@@ -56,6 +281,7 @@ window.SURVIVOR_CONFIG = {
     },
     {
       name: "bhavesh.21",
+      discordId: "",
       isOwner: false,
       primaryRole: "SuperAdmin",
       roles: ["SuperAdmin", "Commander", "Support"],
@@ -64,6 +290,7 @@ window.SURVIVOR_CONFIG = {
     },
     {
       name: "vinayak_shree",
+      discordId: "",
       isOwner: false,
       primaryRole: "SuperAdmin",
       roles: ["SuperAdmin", "Support"],
@@ -72,6 +299,7 @@ window.SURVIVOR_CONFIG = {
     },
     {
       name: "void_pr0",
+      discordId: "",
       isOwner: false,
       primaryRole: "SuperAdmin",
       roles: ["SuperAdmin", "Commander", "Support"],
@@ -80,6 +308,7 @@ window.SURVIVOR_CONFIG = {
     },
     {
       name: "godzy0978",
+      discordId: "",
       isOwner: false,
       primaryRole: "Commander",
       roles: ["Commander", "Support"],
@@ -88,6 +317,7 @@ window.SURVIVOR_CONFIG = {
     },
     {
       name: "jokoers",
+      discordId: "",
       isOwner: false,
       primaryRole: "Commander",
       roles: ["Commander", "Support"],
@@ -96,6 +326,7 @@ window.SURVIVOR_CONFIG = {
     },
     {
       name: "shiro_kaieda",
+      discordId: "",
       isOwner: false,
       primaryRole: "Commander",
       roles: ["Commander", "Support"],
@@ -104,6 +335,7 @@ window.SURVIVOR_CONFIG = {
     },
     {
       name: "yah1ko.1586",
+      discordId: "",
       isOwner: false,
       primaryRole: "Commander",
       roles: ["Commander", "Support"],
@@ -112,6 +344,7 @@ window.SURVIVOR_CONFIG = {
     },
     {
       name: "hacrrr_707",
+      discordId: "",
       isOwner: false,
       primaryRole: "Commander",
       roles: ["Commander"],
@@ -120,6 +353,7 @@ window.SURVIVOR_CONFIG = {
     },
     {
       name: "alii_ahmed",
+      discordId: "",
       isOwner: false,
       primaryRole: "Support",
       roles: ["Support"],
@@ -128,6 +362,7 @@ window.SURVIVOR_CONFIG = {
     },
     {
       name: "giwrgos.l",
+      discordId: "",
       isOwner: false,
       primaryRole: "Support",
       roles: ["Support"],
@@ -136,6 +371,7 @@ window.SURVIVOR_CONFIG = {
     },
     {
       name: "Animesh",
+      discordId: "",
       isOwner: false,
       primaryRole: "IT Support",
       roles: ["IT Support"],

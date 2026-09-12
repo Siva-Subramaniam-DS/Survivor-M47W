@@ -578,12 +578,13 @@ body::before {
 
 .hero-crest-topbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  text-align: center;
   font-family: var(--font-tactical);
-  font-size: 0.74rem;
+  font-size: 0.76rem;
   color: var(--text-muted);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
   margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--border-subtle);
