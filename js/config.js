@@ -251,8 +251,53 @@ window.SURVIVOR_CONFIG = {
       ]
     }
   ],
-  // Exact 16 staff members with exact server roles & direct Discord DM link support
+  // ArtStorm Team Supports - Official Game Developer & Tournament Supervision
+  artstormSupports: [
+    {
+      name: "Daria",
+      discordId: "",
+      primaryRole: "ArtStorm Team",
+      organization: "ArtStorm LLC",
+      roles: ["ArtStorm Team", "Developer Support", "Support"],
+      badge: "ArtStorm Team",
+      rankIcon: "Assets/icons/ranks/Rank61.png",
+      titleIcon: "Assets/icons/title/MW_TitleSystem_TitleIconLegend_Hires.png",
+      description: "Official ArtStorm team representative providing institutional support, developer liaison, and event backing for Survivor M47W tournaments."
+    },
+    {
+      name: "Osris",
+      discordId: "",
+      primaryRole: "ArtStorm Tournament Supervisor",
+      organization: "ArtStorm LLC",
+      roles: ["Tournament Supervisor", "ArtStorm Team", "Support"],
+      badge: "Tournament Supervisor",
+      rankIcon: "Assets/icons/ranks/Rank60.png",
+      titleIcon: "Assets/icons/title/MW_TitleSystem_TitleIconLegend_Hires.png",
+      description: "Official ArtStorm tournament supervisor overseeing competitive fairness, high-level arbitration, and tournament rule compliance."
+    }
+  ],
+  // Server Staff and Official ArtStorm Supports with exact server roles & direct Discord DM link support
   staff: [
+    {
+      name: "Daria",
+      discordId: "",
+      isOwner: false,
+      isArtstorm: true,
+      primaryRole: "ArtStorm Team",
+      roles: ["ArtStorm Team", "Support"],
+      rankIcon: "Assets/icons/ranks/Rank61.png",
+      titleIcon: "Assets/icons/title/MW_TitleSystem_TitleIconLegend_Hires.png",
+    },
+    {
+      name: "Osris",
+      discordId: "",
+      isOwner: false,
+      isArtstorm: true,
+      primaryRole: "ArtStorm Tournament Supervisor",
+      roles: ["Tournament Supervisor", "ArtStorm Team", "Support"],
+      rankIcon: "Assets/icons/ranks/Rank60.png",
+      titleIcon: "Assets/icons/title/MW_TitleSystem_TitleIconLegend_Hires.png",
+    },
     {
       name: "gocodes",
       discordId: "",

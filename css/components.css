@@ -493,6 +493,161 @@
   color: #ffaa44;
 }
 
+.staff-pill.badge-artstorm {
+  background: linear-gradient(135deg, rgba(255, 42, 63, 0.22), rgba(180, 115, 255, 0.25));
+  border: 1px solid rgba(255, 90, 120, 0.55);
+  color: #ff88a3;
+  box-shadow: 0 0 8px rgba(255, 42, 63, 0.25);
+}
+
+.staff-pill.badge-supervisor {
+  background: linear-gradient(135deg, rgba(243, 181, 68, 0.22), rgba(255, 42, 63, 0.2));
+  border: 1px solid rgba(243, 181, 68, 0.55);
+  color: #ffcf70;
+  box-shadow: 0 0 8px rgba(243, 181, 68, 0.25);
+}
+
+.roster-card.card-artstorm {
+  border-color: rgba(255, 90, 120, 0.45);
+  background: radial-gradient(circle at 85% 0%, rgba(255, 42, 63, 0.14), rgba(180, 115, 255, 0.08), rgba(16, 22, 32, 0.92));
+  box-shadow: 0 4px 20px rgba(255, 42, 63, 0.15);
+}
+
+.roster-card.card-artstorm:hover {
+  border-color: rgba(255, 90, 120, 0.8);
+  box-shadow: 0 6px 28px rgba(255, 42, 63, 0.35);
+}
+
+.roster-card.card-artstorm .roster-player-role {
+  color: #ff859d;
+}
+
+.btn-artstorm-tab {
+  background: linear-gradient(135deg, rgba(255, 42, 63, 0.18), rgba(180, 115, 255, 0.18)) !important;
+  border-color: rgba(255, 90, 120, 0.45) !important;
+  color: #ff99b0 !important;
+}
+
+.btn-artstorm-tab.active,
+.btn-artstorm-tab:hover {
+  background: linear-gradient(135deg, rgba(255, 42, 63, 0.45), rgba(180, 115, 255, 0.45)) !important;
+  border-color: #ff5a78 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 14px rgba(255, 90, 120, 0.45);
+}
+
+/* ==========================================================================
+   ARTSTORM TEAM SUPPORTS SECTION
+   ========================================================================== */
+.artstorm-section {
+  position: relative;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 42, 63, 0.08), rgba(11, 15, 25, 0.98) 70%);
+  border-top: 1px solid rgba(255, 42, 63, 0.15);
+  border-bottom: 1px solid rgba(255, 42, 63, 0.15);
+}
+
+.artstorm-banner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(255, 42, 63, 0.12);
+  border: 1px solid rgba(255, 42, 63, 0.35);
+  border-radius: 999px;
+  font-family: var(--font-tactical);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #ff758c;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.artstorm-supports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.artstorm-card {
+  background: linear-gradient(145deg, rgba(22, 28, 42, 0.95) 0%, rgba(30, 16, 26, 0.95) 100%);
+  border: 1px solid rgba(255, 90, 120, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  position: relative;
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.artstorm-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff2a3f, #b473ff, #ff2a3f);
+}
+
+.artstorm-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 90, 120, 0.7);
+  box-shadow: 0 12px 40px rgba(255, 42, 63, 0.28);
+}
+
+.artstorm-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.artstorm-company-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-tactical);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ff94ab;
+  background: rgba(255, 42, 63, 0.12);
+  border: 1px solid rgba(255, 42, 63, 0.3);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.artstorm-member-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+}
+
+.artstorm-member-role {
+  font-family: var(--font-tactical);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ff758c;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+}
+
+.artstorm-member-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
 /* Staff DM Action Button */
 .staff-card-actions {
   margin-top: 14px;

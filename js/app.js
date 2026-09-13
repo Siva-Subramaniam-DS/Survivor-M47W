@@ -111,6 +111,7 @@ function initStaffRoster() {
 
     const filtered = cfg.staff.filter(member => {
       if (filter === 'all') return true;
+      if (filter === 'ArtStorm') return member.isArtstorm || member.roles.includes('ArtStorm Team') || member.roles.includes('Tournament Supervisor');
       if (filter === 'Owner') return member.roles.includes('Owner');
       if (filter === 'Admin') return member.roles.includes('Admin');
       if (filter === 'SuperAdmin') return member.roles.includes('SuperAdmin');
@@ -123,7 +124,10 @@ function initStaffRoster() {
 
     filtered.forEach(member => {
       const card = document.createElement('article');
-      card.className = `roster-card ${member.isOwner ? 'card-owner' : ''}`;
+      let extraClass = '';
+      if (member.isOwner) extraClass = 'card-owner';
+      else if (member.isArtstorm) extraClass = 'card-artstorm';
+      card.className = `roster-card ${extraClass}`;
 
       const roleBadgesHtml = member.roles.map(r => {
         let cls = 'badge-commander';
@@ -133,6 +137,8 @@ function initStaffRoster() {
         else if (r === 'IT Support') cls = 'badge-it';
         else if (r === 'Support') cls = 'badge-support';
         else if (r === 'Artist') cls = 'badge-artist';
+        else if (r === 'ArtStorm Team') cls = 'badge-artstorm';
+        else if (r === 'Tournament Supervisor') cls = 'badge-supervisor';
         return `<span class="staff-pill ${cls}">${r}</span>`;
       }).join(' ');
 
@@ -142,7 +148,7 @@ function initStaffRoster() {
 
       card.innerHTML = `
         <div class="roster-card-header">
-          <div class="roster-rank-badge" title="Military Rank Badge">
+          <div class="roster-rank-badge" title="${member.isArtstorm ? 'Official ArtStorm Partner' : 'Military Rank Badge'}">
             <img src="${member.rankIcon}" alt="Rank Badge" class="roster-rank-img">
           </div>
           <img src="${member.titleIcon}" alt="Title Badge" class="roster-title-img">
@@ -162,23 +168,26 @@ function initStaffRoster() {
         </div>
       `;
 
-      // Intercept DM click for smooth UX if no numeric Discord Snowflake ID is present
-      const dmBtn = card.querySelector('.btn-staff-dm');
+      staffGrid.appendChild(card);
+    });
+
+    // Bind DM click handler for all staff DM buttons (including dynamically rendered ones)
+    document.querySelectorAll('.btn-staff-dm').forEach(dmBtn => {
+      if (dmBtn.hasAttribute('data-bound-click')) return;
+      dmBtn.setAttribute('data-bound-click', 'true');
       dmBtn.addEventListener('click', (e) => {
         const discordId = dmBtn.getAttribute('data-discord-id');
         const staffName = dmBtn.getAttribute('data-name');
         
-        if (!discordId) {
-          // If no numeric snowflake ID is configured yet, copy their username so the user can easily find them in Discord
+        if (!discordId && staffName) {
           if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(staffName);
             showToast(`Copied @${staffName} to clipboard! Direct messaging in Discord...`);
           }
         }
       });
-
-      staffGrid.appendChild(card);
     });
+  }
   }
 
   renderStaff('all');
