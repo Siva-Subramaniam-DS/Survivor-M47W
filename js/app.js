@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDynamicLinks();
   initDiscordInsights();
   initPrizeMatrix();
+  initPosterGallery();
 });
 
 /**
@@ -116,6 +117,7 @@ function initStaffRoster() {
       if (filter === 'Commander') return member.roles.includes('Commander');
       if (filter === 'Support') return member.roles.includes('Support');
       if (filter === 'IT') return member.roles.includes('IT Support');
+      if (filter === 'Artist') return member.roles.includes('Artist');
       return true;
     });
 
@@ -130,6 +132,7 @@ function initStaffRoster() {
         else if (r === 'SuperAdmin') cls = 'badge-superadmin';
         else if (r === 'IT Support') cls = 'badge-it';
         else if (r === 'Support') cls = 'badge-support';
+        else if (r === 'Artist') cls = 'badge-artist';
         return `<span class="staff-pill ${cls}">${r}</span>`;
       }).join(' ');
 
@@ -368,4 +371,288 @@ function escapeHtml(string) {
   const div = document.createElement('div');
   div.textContent = string;
   return div.innerHTML;
+}
+
+/**
+ * Initialize SZone WorXz Single-Card Swipeable Poster Gallery
+ * Supports touch swipe (left & right), desktop mouse drag, keyboard arrows, dots, lightbox, and auto-play
+ */
+function initPosterGallery() {
+  const cfg = window.SURVIVOR_CONFIG;
+  if (!cfg || !cfg.posters || cfg.posters.length === 0) return;
+
+  const posters = cfg.posters;
+  let currentIndex = 0;
+  let isAutoplay = true;
+  let autoplayTimer = null;
+  let isUserHovering = false;
+  let isLightboxActive = false;
+
+  // DOM Elements
+  const singlePosterCard = document.getElementById('singlePosterCard');
+  const posterStage = document.getElementById('posterStage');
+  const posterCurrentImg = document.getElementById('posterCurrentImg');
+  const posterCategoryBadge = document.getElementById('posterCategoryBadge');
+  const posterCounterBadge = document.getElementById('posterCounterBadge');
+  const posterCurrentTitle = document.getElementById('posterCurrentTitle');
+  const posterCurrentSubtitle = document.getElementById('posterCurrentSubtitle');
+  const galleryPrevBtn = document.getElementById('galleryPrevBtn');
+  const galleryNextBtn = document.getElementById('galleryNextBtn');
+  const posterDotsBar = document.getElementById('posterDotsBar');
+  const galleryAutoplayToggle = document.getElementById('galleryAutoplayToggle');
+  const autoplayStatusText = document.getElementById('autoplayStatusText');
+  const btnPosterZoom = document.getElementById('btnPosterZoom');
+  const btnCardZoom = document.getElementById('btnCardZoom');
+
+  // Lightbox DOM Elements
+  const posterLightbox = document.getElementById('posterLightbox');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxOverlay = document.getElementById('lightboxOverlay');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+
+  if (!singlePosterCard || !posterCurrentImg) return;
+
+  // Render Pagination Dots
+  if (posterDotsBar) {
+    posterDotsBar.innerHTML = '';
+    posters.forEach((p, idx) => {
+      const dot = document.createElement('button');
+      dot.className = `poster-dot ${idx === 0 ? 'active' : ''}`;
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', `View Poster ${idx + 1}: ${p.title}`);
+      dot.setAttribute('title', `${idx + 1}. ${p.title}`);
+      dot.addEventListener('click', () => {
+        if (idx !== currentIndex) {
+          const dir = idx > currentIndex ? 'next' : 'prev';
+          currentIndex = idx;
+          renderPoster(currentIndex, dir);
+        }
+      });
+      posterDotsBar.appendChild(dot);
+    });
+  }
+
+  function updateDots(index) {
+    if (!posterDotsBar) return;
+    const dots = posterDotsBar.querySelectorAll('.poster-dot');
+    dots.forEach((dot, i) => {
+      if (i === index) {
+        dot.classList.add('active');
+        dot.setAttribute('aria-selected', 'true');
+      } else {
+        dot.classList.remove('active');
+        dot.setAttribute('aria-selected', 'false');
+      }
+    });
+  }
+
+  // Render Poster Display with Smooth Transition
+  function renderPoster(index, direction = 'none') {
+    const poster = posters[index];
+    if (!poster) return;
+
+    if (direction === 'next') {
+      posterCurrentImg.classList.add('sliding-out-left');
+    } else if (direction === 'prev') {
+      posterCurrentImg.classList.add('sliding-out-right');
+    }
+
+    setTimeout(() => {
+      posterCurrentImg.src = poster.image;
+      posterCurrentImg.alt = `${poster.title} - SZone WorXz Poster`;
+      if (posterCategoryBadge) posterCategoryBadge.textContent = poster.category;
+      if (posterCounterBadge) {
+        posterCounterBadge.textContent = `${String(index + 1).padStart(2, '0')} / ${String(posters.length).padStart(2, '0')}`;
+      }
+      if (posterCurrentTitle) posterCurrentTitle.textContent = poster.title;
+      if (posterCurrentSubtitle) posterCurrentSubtitle.textContent = poster.subtitle;
+
+      if (lightboxImg) {
+        lightboxImg.src = poster.image;
+        lightboxImg.alt = `${poster.title} - Fullscreen View`;
+      }
+      if (lightboxCaption) {
+        lightboxCaption.innerHTML = `
+          <strong>${escapeHtml(poster.title)}</strong>
+          <span>${escapeHtml(poster.subtitle)} • Art by ${escapeHtml(poster.designer)}</span>
+        `;
+      }
+
+      posterCurrentImg.className = 'poster-image ' + (direction === 'next' ? 'sliding-in-left' : (direction === 'prev' ? 'sliding-in-right' : ''));
+      // Trigger repaint to run animation
+      void posterCurrentImg.offsetWidth;
+      posterCurrentImg.className = 'poster-image';
+
+      updateDots(index);
+    }, direction === 'none' ? 0 : 120);
+  }
+
+  function nextPoster() {
+    currentIndex = (currentIndex + 1) % posters.length;
+    renderPoster(currentIndex, 'next');
+  }
+
+  function prevPoster() {
+    currentIndex = (currentIndex - 1 + posters.length) % posters.length;
+    renderPoster(currentIndex, 'prev');
+  }
+
+  // Navigation button listeners
+  if (galleryPrevBtn) galleryPrevBtn.addEventListener('click', prevPoster);
+  if (galleryNextBtn) galleryNextBtn.addEventListener('click', nextPoster);
+  if (lightboxPrev) lightboxPrev.addEventListener('click', prevPoster);
+  if (lightboxNext) lightboxNext.addEventListener('click', nextPoster);
+
+  // Touch Gesture Listeners (Swipe Left / Swipe Right)
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchStartTime = 0;
+
+  if (posterStage) {
+    posterStage.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      touchStartTime = Date.now();
+    }, { passive: true });
+
+    posterStage.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      const touchEndY = e.changedTouches[0].clientY;
+      const diffX = touchEndX - touchStartX;
+      const diffY = touchEndY - touchStartY;
+      const elapsed = Date.now() - touchStartTime;
+
+      // Detect horizontal swipe with minimum threshold and angle tolerance
+      if (Math.abs(diffX) > 36 && Math.abs(diffX) > Math.abs(diffY) * 1.2 && elapsed < 650) {
+        if (diffX < 0) {
+          nextPoster(); // Swiped Left -> Next Poster
+        } else {
+          prevPoster(); // Swiped Right -> Previous Poster
+        }
+      }
+    }, { passive: true });
+
+    // Desktop Mouse Drag to Swipe
+    let isMouseDown = false;
+    let mouseStartX = 0;
+
+    posterStage.addEventListener('mousedown', (e) => {
+      // Don't intercept clicks on nav buttons
+      if (e.target.closest('.poster-nav-btn')) return;
+      isMouseDown = true;
+      mouseStartX = e.clientX;
+      posterStage.classList.add('is-dragging');
+    });
+
+    window.addEventListener('mouseup', (e) => {
+      if (!isMouseDown) return;
+      isMouseDown = false;
+      posterStage.classList.remove('is-dragging');
+      const diffX = e.clientX - mouseStartX;
+      if (Math.abs(diffX) > 45) {
+        if (diffX < 0) {
+          nextPoster();
+        } else {
+          prevPoster();
+        }
+      }
+    });
+
+    posterStage.addEventListener('mouseleave', () => {
+      if (isMouseDown) {
+        isMouseDown = false;
+        posterStage.classList.remove('is-dragging');
+      }
+    });
+  }
+
+  // Keyboard navigation when card has focus or user is in gallery
+  singlePosterCard.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      prevPoster();
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      nextPoster();
+    }
+  });
+
+  // Lightbox View Logic
+  function openLightbox() {
+    if (!posterLightbox) return;
+    isLightboxActive = true;
+    posterLightbox.classList.add('is-open');
+    posterLightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    if (!posterLightbox) return;
+    isLightboxActive = false;
+    posterLightbox.classList.remove('is-open');
+    posterLightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (btnPosterZoom) btnPosterZoom.addEventListener('click', openLightbox);
+  if (btnCardZoom) btnCardZoom.addEventListener('click', openLightbox);
+  if (posterCurrentImg) {
+    posterCurrentImg.addEventListener('click', (e) => {
+      // Only open if not currently dragging
+      openLightbox();
+    });
+  }
+  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if (lightboxOverlay) lightboxOverlay.addEventListener('click', closeLightbox);
+
+  window.addEventListener('keydown', (e) => {
+    if (posterLightbox && posterLightbox.classList.contains('is-open')) {
+      if (e.key === 'Escape') closeLightbox();
+      else if (e.key === 'ArrowLeft') prevPoster();
+      else if (e.key === 'ArrowRight') nextPoster();
+    }
+  });
+
+  // Autoplay functionality
+  function resetAutoplayTimer() {
+    if (autoplayTimer) clearInterval(autoplayTimer);
+    if (!isAutoplay || isUserHovering || isLightboxActive) return;
+
+    autoplayTimer = setInterval(() => {
+      nextPoster();
+    }, 5500);
+  }
+
+  singlePosterCard.addEventListener('mouseenter', () => {
+    isUserHovering = true;
+    if (autoplayTimer) clearInterval(autoplayTimer);
+  });
+
+  singlePosterCard.addEventListener('mouseleave', () => {
+    isUserHovering = false;
+    resetAutoplayTimer();
+  });
+
+  if (galleryAutoplayToggle) {
+    galleryAutoplayToggle.addEventListener('click', () => {
+      isAutoplay = !isAutoplay;
+      if (autoplayStatusText) {
+        autoplayStatusText.textContent = isAutoplay ? '⏸ Auto: On' : '▶ Auto: Paused';
+      }
+      if (isAutoplay) {
+        resetAutoplayTimer();
+        showToast('Gallery auto-slide enabled');
+      } else {
+        if (autoplayTimer) clearInterval(autoplayTimer);
+        showToast('Gallery auto-slide paused');
+      }
+    });
+  }
+
+  // Initial render of first poster
+  renderPoster(0, 'none');
+  resetAutoplayTimer();
 }
