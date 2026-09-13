@@ -260,7 +260,7 @@ window.SURVIVOR_CONFIG = {
       organization: "ArtStorm LLC",
       roles: ["ArtStorm Team", "Developer Support", "Support"],
       badge: "ArtStorm Team",
-      rankIcon: "Assets/icons/ranks/Rank61.png",
+      rankIcon: "Assets/images/artstorm-logo.png",
       titleIcon: "Assets/icons/title/MW_TitleSystem_TitleIconLegend_Hires.png",
       description: "Official ArtStorm team representative providing institutional support, developer liaison, and event backing for Survivor M47W tournaments."
     },
@@ -271,7 +271,7 @@ window.SURVIVOR_CONFIG = {
       organization: "ArtStorm LLC",
       roles: ["Tournament Supervisor", "ArtStorm Team", "Support"],
       badge: "Tournament Supervisor",
-      rankIcon: "Assets/icons/ranks/Rank60.png",
+      rankIcon: "Assets/images/artstorm-logo.png",
       titleIcon: "Assets/icons/title/MW_TitleSystem_TitleIconLegend_Hires.png",
       description: "Official ArtStorm tournament supervisor overseeing competitive fairness, high-level arbitration, and tournament rule compliance."
     }
@@ -285,7 +285,7 @@ window.SURVIVOR_CONFIG = {
       isArtstorm: true,
       primaryRole: "ArtStorm Team",
       roles: ["ArtStorm Team", "Support"],
-      rankIcon: "Assets/icons/ranks/Rank61.png",
+      rankIcon: "Assets/images/artstorm-logo.png",
       titleIcon: "Assets/icons/title/MW_TitleSystem_TitleIconLegend_Hires.png",
     },
     {
@@ -295,7 +295,7 @@ window.SURVIVOR_CONFIG = {
       isArtstorm: true,
       primaryRole: "ArtStorm Tournament Supervisor",
       roles: ["Tournament Supervisor", "ArtStorm Team", "Support"],
-      rankIcon: "Assets/icons/ranks/Rank60.png",
+      rankIcon: "Assets/images/artstorm-logo.png",
       titleIcon: "Assets/icons/title/MW_TitleSystem_TitleIconLegend_Hires.png",
     },
     {
