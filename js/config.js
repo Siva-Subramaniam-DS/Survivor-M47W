@@ -353,7 +353,7 @@ window.SURVIVOR_CONFIG = {
       titleIcon: "Assets/icons/title/MW_TitleSystem_TitleIconHero_Hires.png",
     },
     {
-      name: "godzy0978",
+      name: "godzy",
       discordId: "",
       isOwner: false,
       primaryRole: "Commander",
@@ -380,7 +380,7 @@ window.SURVIVOR_CONFIG = {
       titleIcon: "Assets/icons/title/MW_TitleSystem_TitleIcon_Epic_Hires.png",
     },
     {
-      name: "yah1ko.1586",
+      name: "yah1ko",
       discordId: "",
       isOwner: false,
       primaryRole: "Commander",
@@ -389,7 +389,7 @@ window.SURVIVOR_CONFIG = {
       titleIcon: "Assets/icons/title/MW_TitleSystem_TitleIcon_Epic_Hires.png",
     },
     {
-      name: "hacrrr_707",
+      name: "hacrrr",
       discordId: "",
       isOwner: false,
       primaryRole: "Commander",
@@ -425,7 +425,7 @@ window.SURVIVOR_CONFIG = {
       titleIcon: "Assets/icons/title/MW_TitleSystem_TitleIconHero_Hires.png",
     },
     {
-      name: "vaibhavsharma0608_24692",
+      name: "vaibhavsharma",
       discordId: "",
       isOwner: false,
       primaryRole: "Artist",
@@ -434,7 +434,7 @@ window.SURVIVOR_CONFIG = {
       titleIcon: "Assets/icons/title/MW_TitleSystem_TitleIconHero_Hires.png",
     },
     {
-      name: "kakkarot0276",
+      name: "kakkarot",
       discordId: "",
       isOwner: false,
       primaryRole: "Artist",
@@ -465,14 +465,14 @@ window.SURVIVOR_CONFIG = {
         titleIcon: "Assets/icons/title/MW_TitleSystem_TitleIconLegend_Hires.png"
       },
       {
-        name: "vaibhavsharma0608_24692",
+        name: "vaibhavsharma",
         role: "Tournament Poster Artist",
         tag: "Artist",
         rankIcon: "Assets/icons/ranks/Rank56.png",
         titleIcon: "Assets/icons/title/MW_TitleSystem_TitleIconHero_Hires.png"
       },
       {
-        name: "kakkarot0276",
+        name: "kakkarot",
         role: "Graphic & Asset Designer",
         tag: "Artist",
         rankIcon: "Assets/icons/ranks/Rank55.png",
