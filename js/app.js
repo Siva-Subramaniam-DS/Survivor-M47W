@@ -10,12 +10,68 @@ function initApp() {
   initDiscordInsights();
   initPrizeMatrix();
   initPosterGallery();
+  initInspectProtection();
 }
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initApp);
 } else {
   initApp();
+}
+
+/**
+ * Prevent Inspect Element, View Source, and DevTools Shortcuts
+ */
+function initInspectProtection() {
+  // Disable right-click context menu
+  document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    if (typeof showToast === 'function') {
+      showToast('⚠️ Right-click inspection is disabled on Survivor [M47W]');
+    }
+    return false;
+  }, false);
+
+  // Intercept DevTools keyboard shortcuts
+  document.addEventListener('keydown', (e) => {
+    const isCtrlOrMeta = e.ctrlKey || e.metaKey;
+    const isShift = e.shiftKey;
+    const key = e.key ? e.key.toUpperCase() : '';
+    const keyCode = e.keyCode || e.which;
+
+    // F12 key
+    const isF12 = key === 'F12' || keyCode === 123;
+    // Ctrl+Shift+I (Inspect), Ctrl+Shift+J (Console), Ctrl+Shift+C (Element Selector)
+    const isInspectCombo = isCtrlOrMeta && isShift && (key === 'I' || key === 'J' || key === 'C' || keyCode === 73 || keyCode === 74 || keyCode === 67);
+    // Ctrl+U (View Source)
+    const isViewSource = isCtrlOrMeta && (key === 'U' || keyCode === 85);
+    // Ctrl+S (Save Page)
+    const isSavePage = isCtrlOrMeta && (key === 'S' || keyCode === 83);
+
+    if (isF12 || isInspectCombo || isViewSource || isSavePage) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (typeof showToast === 'function') {
+        showToast('⚠️ Source inspection is restricted on this platform');
+      }
+      return false;
+    }
+  }, true);
+
+  // Disable dragging images to prevent inspect via dragging
+  document.addEventListener('dragstart', (e) => {
+    e.preventDefault();
+  }, false);
+
+  // Clear console and print security warning
+  try {
+    console.clear();
+    console.log(
+      '%cSURVIVOR [M47W] - SECURED PORTAL\n%cSource inspection is restricted on this platform.',
+      'color: #ff2a3f; font-size: 20px; font-weight: bold; font-family: monospace;',
+      'color: #94a3b8; font-size: 13px;'
+    );
+  } catch (_) {}
 }
 
 /**
