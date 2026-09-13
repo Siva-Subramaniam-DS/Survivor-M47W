@@ -223,7 +223,7 @@ function initPrizeMatrix() {
       if (p.titleBadge) {
         itemsListHtml += `
           <div class="prize-item-row">
-            <img src="${p.titleIcon || 'assets/icons/title/MW_TitleSystem_TitleIconLegend_Hires.png'}" alt="Prestige Title" class="prize-item-icon" loading="lazy">
+            <img src="${p.titleIcon || 'Assets/icons/title/MW_TitleSystem_TitleIconLegend_Hires.png'}" alt="Prestige Title" class="prize-item-icon" loading="lazy">
             <div class="prize-item-info">
               <span class="prize-item-label">Verified Title Reward</span>
               <strong class="prize-item-val val-title">${escapeHtml(p.titleBadge)}</strong>
@@ -236,7 +236,7 @@ function initPrizeMatrix() {
       if (p.specialItem) {
         itemsListHtml += `
           <div class="prize-item-row">
-            <img src="${p.specialIcon || 'assets/icons/rewards/BP_vip_hires.png'}" alt="Special Event Reward" class="prize-item-icon" loading="lazy">
+            <img src="${p.specialIcon || 'Assets/icons/rewards/BP_vip_hires.png'}" alt="Special Event Reward" class="prize-item-icon" loading="lazy">
             <div class="prize-item-info">
               <span class="prize-item-label">Event Item Drop</span>
               <strong class="prize-item-val val-special">${escapeHtml(p.specialItem)}</strong>
@@ -249,7 +249,7 @@ function initPrizeMatrix() {
       if (p.ac) {
         itemsListHtml += `
           <div class="prize-item-row">
-            <img src="assets/icons/rewards/artcoinOffer_6.png" alt="Artcoin (AC)" class="prize-item-icon" loading="lazy">
+            <img src="Assets/icons/rewards/artcoinOffer_6.png" alt="Artcoin (AC)" class="prize-item-icon" loading="lazy">
             <div class="prize-item-info">
               <span class="prize-item-label">Market Currency</span>
               <strong class="prize-item-val val-ac">${escapeHtml(p.ac)}</strong>
@@ -262,7 +262,7 @@ function initPrizeMatrix() {
       if (p.hd) {
         itemsListHtml += `
           <div class="prize-item-row">
-            <img src="assets/icons/rewards/goldOffer_6.png" alt="Tournament Currency (HD)" class="prize-item-icon" loading="lazy">
+            <img src="Assets/icons/rewards/goldOffer_6.png" alt="Tournament Currency (HD)" class="prize-item-icon" loading="lazy">
             <div class="prize-item-info">
               <span class="prize-item-label">Tournament Currency</span>
               <strong class="prize-item-val val-hd">${escapeHtml(p.hd)}</strong>
@@ -275,7 +275,7 @@ function initPrizeMatrix() {
       if (p.premium) {
         itemsListHtml += `
           <div class="prize-item-row">
-            <img src="assets/icons/rewards/premiumAccount.png" alt="Premium Pass" class="prize-item-icon" loading="lazy">
+            <img src="Assets/icons/rewards/premiumAccount.png" alt="Premium Pass" class="prize-item-icon" loading="lazy">
             <div class="prize-item-info">
               <span class="prize-item-label">VIP Subscription</span>
               <strong class="prize-item-val val-premium">${escapeHtml(p.premium)}</strong>
