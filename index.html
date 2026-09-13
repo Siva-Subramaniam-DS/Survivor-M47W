@@ -11,12 +11,12 @@
   <meta property="og:title" content="Survivor [M47W] - Modern Warships Tournament Server">
   <meta property="og:description" content="The Arena of Champions. 297+ Tournaments Conducted • 150+ Legends • 200+ Heroes. Join our Discord to register!">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="Assets/logo.png">
+  <meta property="og:image" content="assets/images/logo.png">
 
   <title>SURVIVOR [M47W] - Modern Warships Tournament Server</title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="Assets/Logo (2).png">
+  <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/style.css">
@@ -32,7 +32,7 @@
         <span><strong>TOURNAMENT SERVER:</strong> 297+ Tournaments Completed • Registrations Managed in Discord Only</span>
       </div>
       <div class="announcement-links">
-        <a href="#tournaments">
+        <a href="tournaments.html">
           <span class="live-dot dot-red"></span>
           <span>Weekend Brackets</span>
         </a>
@@ -43,30 +43,25 @@
     </div>
   </aside>
 
-  <!-- Sticky Site Header (Single-Line Desktop & Mobile Responsive) -->
+  <!-- Sticky Site Header -->
   <header class="site-header">
     <div class="container nav-container">
-      <a href="#hero" class="brand" aria-label="Survivor M47W Home">
-        <img src="Assets/logo.png" alt="Survivor M47W Logo" class="brand-logo-img">
+      <a href="index.html" class="brand" aria-label="Survivor M47W Home">
+        <img src="assets/images/logo.png" alt="Survivor M47W Logo" class="brand-logo-img">
         <div class="brand-text">
           <span class="brand-title">SURVIVOR</span>
           <span class="brand-tag">TOURNAMENT SERVER</span>
         </div>
       </a>
 
-      <!-- Single-Line Desktop Navigation -->
+      <!-- Multi-Page Navigation -->
       <nav aria-label="Main Navigation">
         <ul class="nav-menu" id="navMenu">
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#fame" class="nav-link">Hall of Fame</a></li>
-          <li><a href="#tournaments" class="nav-link">Tournaments</a></li>
-          <li><a href="#special-tours" class="nav-link">Special Tours</a></li>
-          <li><a href="#prizes" class="nav-link">Prizes</a></li>
-          <li><a href="#videos" class="nav-link">Match Videos</a></li>
-          <li><a href="#gallery" class="nav-link">Poster Gallery</a></li>
-          <li><a href="#staff" class="nav-link">Staff</a></li>
-          <li><a href="#partner" class="nav-link">Arena Partner</a></li>
-          <li><a href="#support" class="nav-link">Support</a></li>
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="tournaments.html" class="nav-link">Tournaments</a></li>
+          <li><a href="prizes.html" class="nav-link">Prizes</a></li>
+          <li><a href="gallery.html" class="nav-link">Poster Gallery</a></li>
+          <li><a href="staff.html" class="nav-link">Staff & Partner</a></li>
         </ul>
       </nav>
 
@@ -103,7 +98,7 @@
             <span class="title-accent">SURVIVE & CONQUER.</span>
           </h1>
           <p class="hero-desc">
-            Welcome to <strong>Survivor [M47W]</strong> - the official Modern Warships competitive tournament server owned by <strong>gocodes</strong>. With <strong>297+ tournaments conducted</strong>, we host premier weekly brackets where champions earn gold, battle passes, and legendary titles. All tournament registration is managed directly in our Discord channels!
+            Welcome to <strong>Survivor [M47W]</strong> - the premier Modern Warships competitive tournament server owned by <strong>gocodes</strong>. With <strong>297+ tournaments conducted</strong>, we host elite weekend brackets and specialized combat doctrines where champions earn real prizes, gold, VIP passes, and legendary titles. All tournament registration is managed in Discord!
           </p>
 
           <div class="hero-actions">
@@ -113,11 +108,11 @@
               </svg>
               <span>Enter Tournament Discord</span>
             </a>
-            <a href="#tournaments" class="btn btn-outline">
-              <span>View Tournament Rooms</span>
+            <a href="tournaments.html" class="btn btn-outline">
+              <span>View Tournaments</span>
             </a>
-            <a href="#videos" class="btn btn-outline-gold">
-              <span>Match Videos</span>
+            <a href="prizes.html" class="btn btn-outline-gold">
+              <span>Prize Matrix</span>
             </a>
           </div>
 
@@ -147,7 +142,7 @@
             <div class="hero-crest-topbar">
               <span>OFFICIAL TOURNAMENT SERVER</span>
             </div>
-            <img src="Assets/logo.png" alt="Survivor M47W Insignia" class="hero-crest-logo">
+            <img src="assets/images/logo.png" alt="Survivor M47W Insignia" class="hero-crest-logo">
             <h2 class="hero-crest-caption">SURVIVOR TOURNAMENT ARENA</h2>
             <div class="hero-crest-pills">
               <span class="tactical-pill pill-red">297+ TOURNAMENTS</span>
@@ -188,15 +183,15 @@
             </div>
           </a>
 
-          <a href="#videos" class="status-card">
+          <a href="https://youtube.com/@insfourtyseven7711?si=yuTAbnCFT_ipY31N" target="_blank" rel="noopener noreferrer" class="status-card">
             <div class="status-icon icon-gold">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polygon points="5 3 19 12 5 21 5 3"></polygon>
               </svg>
             </div>
             <div class="status-info">
-              <small>Match Replays</small>
-              <strong>OFFICIAL REPLAY ARCHIVE</strong>
+              <small>YouTube Broadcasts</small>
+              <strong>MATCH REPLAY ARCHIVE</strong>
             </div>
           </a>
 
@@ -217,39 +212,137 @@
       </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section class="section" id="about">
+    <!-- COMMAND PORTALS (UNCLUTTERED GATEWAY SECTION) -->
+    <section class="section" id="portals">
       <div class="container">
         <div class="section-head">
-          <span class="section-kicker">TOURNAMENT SERVER ONLY</span>
-          <h2 class="section-title">THE HOME OF <span>MODERN WARSHIPS COMPETITION</span></h2>
+          <span class="section-kicker">COMMAND DIRECTORY</span>
+          <h2 class="section-title">EXPLORE THE <span>SURVIVOR UNIVERSE</span></h2>
           <p class="section-lead">
-            Survivor M47W is dedicated strictly to hosting, refereeing, and broadcasting premier Modern Warships tournaments. Owned by <strong>gocodes</strong>, our server brings together competitive fleets from around the world for high-intensity weekend championships.
+            Select a specialized command sector below to view tournament brackets, check verified prize matrices, browse creative posters, or meet server leadership.
           </p>
+        </div>
+
+        <div class="portals-grid">
+          <!-- Portal 1: Tournaments -->
+          <a href="tournaments.html" class="portal-card">
+            <div class="portal-top-row">
+              <div class="portal-icon-frame">⚔️</div>
+              <span class="portal-badge badge-red">CHAMPIONSHIPS</span>
+            </div>
+            <h3 class="portal-title">Tournament Arenas</h3>
+            <p class="portal-desc">
+              Weekly Saturday & Sunday brackets, results channel, and 7 special themed combat doctrines including Rogue Nation, Rogue Wave, and Mach De March.
+            </p>
+            <ul class="portal-features-list">
+              <li>Saturday & Sunday Series Registration</li>
+              <li>7 Themed Single-Class & No-Rule Arenas</li>
+              <li>Next-Gen Concept Innovations Lab</li>
+            </ul>
+            <div class="portal-cta">
+              <span>View Tournament Rooms</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Portal 2: Prizes -->
+          <a href="prizes.html" class="portal-card card-gold">
+            <div class="portal-top-row">
+              <div class="portal-icon-frame">🏆</div>
+              <span class="portal-badge badge-gold">PRIZE MATRIX</span>
+            </div>
+            <h3 class="portal-title">Prize Pools & Matrix</h3>
+            <p class="portal-desc">
+              Complete prize pool matrices across Parallel, Main, Monthly Gacha, and Teams tournaments with verified AC, HD currency, VIP passes, and titles.
+            </p>
+            <ul class="portal-features-list">
+              <li>Interactive 4-Event Prize Matrix</li>
+              <li>Artcoins, Gold, and VIP Pass Tiers</li>
+              <li>Legend & Hero Verification Badges</li>
+            </ul>
+            <div class="portal-cta">
+              <span>View Prize Matrix</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Portal 3: Poster Gallery & SZone WorXz -->
+          <a href="gallery.html" class="portal-card card-cyan">
+            <div class="portal-top-row">
+              <div class="portal-icon-frame">🎨</div>
+              <span class="portal-badge badge-cyan">SZONE WORXZ</span>
+            </div>
+            <h3 class="portal-title">SZone WorXz & Posters</h3>
+            <p class="portal-desc">
+              Meet our official creative team (gocodes, hokage, vaibhavsharma, kakkarot) and swipe through 12 championship tournament posters in full resolution.
+            </p>
+            <ul class="portal-features-list">
+              <li>Official Design Studio & Artist Roster</li>
+              <li>Swipeable Single-Card Poster Frame</li>
+              <li>Fullscreen Lightbox & Zoom Mode</li>
+            </ul>
+            <div class="portal-cta">
+              <span>Enter Poster Gallery</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Portal 4: Staff & Partners -->
+          <a href="staff.html" class="portal-card card-purple">
+            <div class="portal-top-row">
+              <div class="portal-icon-frame">🛡️</div>
+              <span class="portal-badge badge-purple">LEADERSHIP</span>
+            </div>
+            <h3 class="portal-title">Staff & Strategic Partner</h3>
+            <p class="portal-desc">
+              Connect with 16 certified tournament marshals with direct Discord DM actions, and explore our strategic alliance with Arena International.
+            </p>
+            <ul class="portal-features-list">
+              <li>16 Staff Marshals with Role Filters</li>
+              <li>Direct Discord DM & Support Action</li>
+              <li>Arena International Alliance Hub</li>
+            </ul>
+            <div class="portal-cta">
+              <span>Meet the Leadership</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- HALL OF FAME & PLAYER BENEFITS -->
+    <!-- DISCORD INSIGHTS & STATS -->
     <section class="section" id="fame" style="background: var(--bg-surface);">
       <div class="container">
         <div class="section-head">
-          <span class="section-kicker">PROVEN TRACK RECORD</span>
-          <h2 class="section-title">HALL OF FAME & <span>PLAYER BENEFITS</span></h2>
+          <span class="section-kicker">COMMUNITY TELEMETRY</span>
+          <h2 class="section-title">VERIFIED SERVER <span>ENGAGEMENT & STATS</span></h2>
           <p class="section-lead">
-            Over 297 tournaments conducted with real prizes awarded across competitive brackets.
+            Live weekly community engagement metrics and competitive milestones from our 15,300+ Discord member base.
           </p>
         </div>
 
-        <!-- 4 Proven Stats Cards (Including 15,300 Discord Members) -->
+        <!-- 4 Proven Stats Cards -->
         <div class="fame-stats-grid">
           <div class="fame-stat-card">
             <div class="fame-icon-frame">
-              <img src="MW Icons/BP_vip_hires.png" alt="Tournaments Conducted">
+              <img src="assets/icons/rewards/BP_vip_hires.png" alt="Tournaments Conducted" loading="lazy">
             </div>
             <div>
               <div class="fame-stat-num num-red">297+</div>
-              <div class="fame-stat-label">Tournaments Conducted So Far</div>
+              <div class="fame-stat-label">Tournaments Completed</div>
             </div>
           </div>
 
@@ -261,32 +354,32 @@
             </div>
             <div>
               <div class="fame-stat-num" style="color: #7289da;">15,300</div>
-              <div class="fame-stat-label">Discord Server Members</div>
+              <div class="fame-stat-label">Discord Members</div>
             </div>
           </div>
 
           <div class="fame-stat-card gold-card">
             <div class="fame-icon-frame">
-              <img src="MW Icons/Title/MW_TitleSystem_TitleIconLegend_Hires.png" alt="Legend Title Winners">
+              <img src="assets/icons/title/MW_TitleSystem_TitleIconLegend_Hires.png" alt="Legend Title Winners" loading="lazy">
             </div>
             <div>
               <div class="fame-stat-num num-gold">150+</div>
-              <div class="fame-stat-label">Legend Titles Won Here</div>
+              <div class="fame-stat-label">Legend Titles Won</div>
             </div>
           </div>
 
           <div class="fame-stat-card">
             <div class="fame-icon-frame">
-              <img src="MW Icons/Title/MW_TitleSystem_TitleIconHero_Hires.png" alt="Hero Title Winners">
+              <img src="assets/icons/title/MW_TitleSystem_TitleIconHero_Hires.png" alt="Hero Title Winners" loading="lazy">
             </div>
             <div>
               <div class="fame-stat-num">200+</div>
-              <div class="fame-stat-label">Hero Titles Won Here</div>
+              <div class="fame-stat-label">Hero Titles Won</div>
             </div>
           </div>
         </div>
 
-        <!-- Official Discord Server Insights Analytics Panel -->
+        <!-- Official Discord Server Insights Panel -->
         <div class="discord-insights-panel">
           <div class="discord-insights-header">
             <div class="insights-title-wrap">
@@ -304,7 +397,6 @@
           </div>
 
           <div class="discord-insights-grid">
-            <!-- Card 1: Weekly Visitors -->
             <div class="discord-stat-box">
               <div class="discord-stat-top">
                 <span class="discord-stat-name">Weekly Visitors</span>
@@ -317,7 +409,6 @@
               </div>
             </div>
 
-            <!-- Card 2: Weekly Communicators -->
             <div class="discord-stat-box">
               <div class="discord-stat-top">
                 <span class="discord-stat-name">Weekly Communicators</span>
@@ -330,7 +421,6 @@
               </div>
             </div>
 
-            <!-- Card 3: Weekly New Members -->
             <div class="discord-stat-box">
               <div class="discord-stat-top">
                 <span class="discord-stat-name">Weekly New Members</span>
@@ -343,7 +433,6 @@
               </div>
             </div>
 
-            <!-- Card 4: Weekly New Member Retention -->
             <div class="discord-stat-box">
               <div class="discord-stat-top">
                 <span class="discord-stat-name">Weekly New Member Retention</span>
@@ -357,717 +446,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Player Benefits Strip with Official MW Icons -->
-        <div class="rewards-strip">
-          <div class="rewards-head">
-            <h3 style="font-family: var(--font-display); font-size: 1.3rem; color: #ffffff; text-transform: uppercase;">
-              Tournament Competitor Benefits & Rewards
-            </h3>
-            <p style="font-size: 0.88rem; color: var(--text-secondary); max-width: 600px; margin: 6px auto 0;">
-              Captains who compete in Survivor tournaments earn verified prestige, leaderboard rank, and community rewards.
-            </p>
-          </div>
-
-          <div class="rewards-grid">
-            <div class="reward-item">
-              <img src="MW Icons/goldOffer_6.png" alt="Gold Rewards">
-              <strong>Gold Prizes</strong>
-              <span>Tournament prize pools</span>
-            </div>
-            <div class="reward-item">
-              <img src="MW Icons/artcoinOffer_6.png" alt="Artcoin Rewards">
-              <strong>Artcoin Rewards</strong>
-              <span>Market currency stakes</span>
-            </div>
-            <div class="reward-item">
-              <img src="MW Icons/BP_vip_hires.png" alt="VIP Pass Rewards">
-              <strong>VIP Battle Pass</strong>
-              <span>Monthly VIP sponsorship</span>
-            </div>
-            <div class="reward-item">
-              <img src="MW Icons/BP_premium_hires.png" alt="Premium Pass">
-              <strong>Premium Pass</strong>
-              <span>Monthly tier unlocks</span>
-            </div>
-            <div class="reward-item">
-              <img src="MW Icons/premiumAccount.png" alt="Premium Account">
-              <strong>Premium Account</strong>
-              <span>Booster access days</span>
-            </div>
-            <div class="reward-item">
-              <img src="MW Icons/Title/MW_TitleSystem_TitleIconLegend_Hires.png" alt="Prestige Titles">
-              <strong>Title Recognition</strong>
-              <span>Legend & Hero standings</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TOURNAMENT COMMAND HUB -->
-    <section class="section" id="tournaments">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-kicker">DISCORD REGISTRATION CHANNELS</span>
-          <h2 class="section-title">WEEKEND <span>TOURNAMENT ROOMS</span></h2>
-          <p class="section-lead">
-            All tournament registrations happen directly in Discord! Click below to enter your bracket's channel.
-          </p>
-        </div>
-
-        <div class="tournament-grid">
-          <!-- Saturday Tournament -->
-          <article class="tournament-card highlight-gold">
-            <div class="tournament-card-top">
-              <span class="tournament-badge-pill gold">SATURDAY SERIES</span>
-              <span class="live-dot"></span>
-            </div>
-            <h3 class="tournament-day">Saturday Tournament</h3>
-            <p class="tournament-desc">
-              Weekly Saturday tournament with designated squad sizes, tier caps, and intense knockout matches. Register inside the official channel.
-            </p>
-            <div class="tournament-meta">
-              <div class="meta-row">
-                <span>Registration Location:</span>
-                <strong>In Discord Only</strong>
-              </div>
-              <div class="meta-row">
-                <span>Channel:</span>
-                <strong>#saturday-tournament</strong>
-              </div>
-              <div class="meta-row">
-                <span>Entry:</span>
-                <strong>Open to Verified Captains</strong>
-              </div>
-            </div>
-            <a href="https://discord.com/channels/1050414982417887283/1210456226505170964" target="_blank" rel="noopener noreferrer" class="btn btn-outline-gold" style="width: 100%;">
-              <span>Register in Discord (#saturday)</span>
-            </a>
-          </article>
-
-          <!-- Sunday Tournament -->
-          <article class="tournament-card highlight-red">
-            <div class="tournament-card-top">
-              <span class="tournament-badge-pill">SUNDAY CHAMPIONSHIP</span>
-              <span class="live-dot dot-red"></span>
-            </div>
-            <h3 class="tournament-day">Sunday Tournament</h3>
-            <p class="tournament-desc">
-              Premier Sunday championship cup where top squads compete for glory, high-tier prizes, and leaderboard points. Register inside the official channel.
-            </p>
-            <div class="tournament-meta">
-              <div class="meta-row">
-                <span>Registration Location:</span>
-                <strong>In Discord Only</strong>
-              </div>
-              <div class="meta-row">
-                <span>Channel:</span>
-                <strong>#sunday-tournament</strong>
-              </div>
-              <div class="meta-row">
-                <span>Entry:</span>
-                <strong>Squad & Individual Registration</strong>
-              </div>
-            </div>
-            <a href="https://discord.com/channels/1050414982417887283/1051428633106972762" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%;">
-              <span>Register in Discord (#sunday)</span>
-            </a>
-          </article>
-
-          <!-- Official Results -->
-          <article class="tournament-card">
-            <div class="tournament-card-top">
-              <span class="tournament-badge-pill" style="background: rgba(56, 200, 255, 0.1); border-color: rgba(56, 200, 255, 0.3); color: var(--accent-cyan);">VERIFIED ARCHIVE</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="var(--accent-cyan)">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-              </svg>
-            </div>
-            <h3 class="tournament-day">Official Results</h3>
-            <p class="tournament-desc">
-              Access certified scorecards, bracket logs, and podium winners across all 297+ conducted tournaments.
-            </p>
-            <div class="tournament-meta">
-              <div class="meta-row">
-                <span>Verification:</span>
-                <strong>SuperAdmin & Marshals</strong>
-              </div>
-              <div class="meta-row">
-                <span>Channel:</span>
-                <strong>#tournament-result</strong>
-              </div>
-              <div class="meta-row">
-                <span>Status:</span>
-                <strong>Live Updated</strong>
-              </div>
-            </div>
-            <a href="https://discord.com/channels/1050414982417887283/1051473469369491466" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%; border-color: var(--accent-cyan); color: var(--accent-cyan);" id="linkResults">
-              <span>View Results Channel</span>
-            </a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- SPECIAL & CONCEPT TOURNAMENTS -->
-    <section class="section" id="special-tours">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-kicker">CUSTOM COMBAT DOCTRINES</span>
-          <h2 class="section-title">SPECIAL & CONCEPT <span>TOURNAMENT ARENAS</span></h2>
-          <p class="section-lead">
-            Beyond standard weekend brackets, Survivor [M47W] hosts legendary themed invitationals, no-rules skirmishes, and single-class battles. Keep watch in our Discord announcements when these special events open!
-          </p>
-        </div>
-
-        <div class="special-tours-grid">
-          <!-- Rogue Nation -->
-          <article class="special-tour-card border-glow-red">
-            <div class="special-tour-top">
-              <span class="tactical-badge badge-red">NO RESTRICTIONS</span>
-              <img src="MW Icons/Units/Corvette.png" alt="All Warships" class="special-tour-unit-icon">
-            </div>
-            <h3 class="special-tour-title">Rogue Nation</h3>
-            <div class="special-tour-rule-pill">
-              <span>Rule:</span> <strong>All Ships • No Rules</strong>
-            </div>
-            <p class="special-tour-desc">
-              Unrestricted, all-out naval mayhem! Deploy any warship class with zero equipment bans or tonnage limits. Total firepower and pure chaotic tactical brawl.
-            </p>
-            <div class="special-tour-footer">
-              <span class="special-tour-tag">Open Fleets</span>
-              <a href="https://discord.gg/6sPeeaY6bj" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-xs">Discord Alerts</a>
-            </div>
-          </article>
-
-          <!-- Rogue Wave -->
-          <article class="special-tour-card border-glow-cyan">
-            <div class="special-tour-top">
-              <span class="tactical-badge badge-cyan">UNDERWATER CARNAGE</span>
-              <img src="MW Icons/Units/Submarine.png" alt="Submarine" class="special-tour-unit-icon">
-            </div>
-            <h3 class="special-tour-title">Rogue Wave</h3>
-            <div class="special-tour-rule-pill">
-              <span>Rule:</span> <strong>All Subs • No Rules</strong>
-            </div>
-            <p class="special-tour-desc">
-              Deep-ocean predator clash. Only submarines are permitted in this silent yet lethal stealth bracket. Sonar pinging, torpedo salvos, and underwater dogfights.
-            </p>
-            <div class="special-tour-footer">
-              <span class="special-tour-tag">Submarines Only</span>
-              <a href="https://discord.gg/6sPeeaY6bj" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-xs">Discord Alerts</a>
-            </div>
-          </article>
-
-          <!-- Mach De March -->
-          <article class="special-tour-card border-glow-gold">
-            <div class="special-tour-top">
-              <span class="tactical-badge badge-gold">ANNUAL CV MAJOR</span>
-              <img src="MW Icons/Units/Carrier.png" alt="Aircraft Carrier" class="special-tour-unit-icon">
-            </div>
-            <h3 class="special-tour-title">Mach De March</h3>
-            <div class="special-tour-rule-pill">
-              <span>Rule:</span> <strong>CV Tours • Yearly Invitational</strong>
-            </div>
-            <p class="special-tour-desc">
-              Survivor's prestigious annual aircraft carrier championship! Elite flight deck captains battle for aerial superiority with strike fighters, bombers, and drones.
-            </p>
-            <div class="special-tour-footer">
-              <span class="special-tour-tag">Air Superiority</span>
-              <a href="https://discord.gg/6sPeeaY6bj" target="_blank" rel="noopener noreferrer" class="btn btn-outline-gold btn-xs">Discord Alerts</a>
-            </div>
-          </article>
-
-          <!-- Cursed Cruiser -->
-          <article class="special-tour-card border-glow-purple">
-            <div class="special-tour-top">
-              <span class="tactical-badge badge-purple">MISSILE BROADSIDE</span>
-              <img src="MW Icons/Units/Cruiser.png" alt="Cruiser" class="special-tour-unit-icon">
-            </div>
-            <h3 class="special-tour-title">Cursed Cruiser</h3>
-            <div class="special-tour-rule-pill">
-              <span>Rule:</span> <strong>All Cruisers • No Rules</strong>
-            </div>
-            <p class="special-tour-desc">
-              High-tonnage missile firepower and rapid naval gun slugfest. All cruisers unleashed with no armaments withheld. Maximum durability meets devastating salvos.
-            </p>
-            <div class="special-tour-footer">
-              <span class="special-tour-tag">Cruisers Only</span>
-              <a href="https://discord.gg/6sPeeaY6bj" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-xs">Discord Alerts</a>
-            </div>
-          </article>
-
-          <!-- Death By Destroyer -->
-          <article class="special-tour-card border-glow-red">
-            <div class="special-tour-top">
-              <span class="tactical-badge badge-red">SPEED & DESTRUCTION</span>
-              <img src="MW Icons/Units/Destroyer.png" alt="Destroyer" class="special-tour-unit-icon">
-            </div>
-            <h3 class="special-tour-title">Death By Destroyer</h3>
-            <div class="special-tour-rule-pill">
-              <span>Rule:</span> <strong>All Destroyers • No Rules</strong>
-            </div>
-            <p class="special-tour-desc">
-              High-speed tactical duels where agile destroyers drift around islands and exchange blistering torpedo volleys and hyper-velocity railgun shots.
-            </p>
-            <div class="special-tour-footer">
-              <span class="special-tour-tag">Destroyers Only</span>
-              <a href="https://discord.gg/6sPeeaY6bj" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-xs">Discord Alerts</a>
-            </div>
-          </article>
-
-          <!-- Rust Battleship -->
-          <article class="special-tour-card border-glow-orange">
-            <div class="special-tour-top">
-              <span class="tactical-badge badge-orange">TITANIC DREADNOUGHTS</span>
-              <img src="MW Icons/Units/Battleship.png" alt="Battleship" class="special-tour-unit-icon">
-            </div>
-            <h3 class="special-tour-title">Rust Battleship</h3>
-            <div class="special-tour-rule-pill">
-              <span>Rule:</span> <strong>All Battleships • Heavy Armor</strong>
-            </div>
-            <p class="special-tour-desc">
-              Colossal steel behemoths trading catastrophic main battery blows. Colossal HP pools, heavy armor plating, and massive cannon impacts across open waters.
-            </p>
-            <div class="special-tour-footer">
-              <span class="special-tour-tag">Battleships Only</span>
-              <a href="https://discord.gg/6sPeeaY6bj" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-xs">Discord Alerts</a>
-            </div>
-          </article>
-
-          <!-- Lazer Levitation -->
-          <article class="special-tour-card border-glow-cyan">
-            <div class="special-tour-top">
-              <span class="tactical-badge badge-cyan">GROUND-EFFECT HYBRID</span>
-              <img src="MW Icons/Units/Ekranoplan.png" alt="Ekranoplan" class="special-tour-unit-icon">
-            </div>
-            <h3 class="special-tour-title">Lazer Levitation</h3>
-            <div class="special-tour-rule-pill">
-              <span>Rule:</span> <strong>Ekranoplan Only • Sea Skimmer</strong>
-            </div>
-            <p class="special-tour-desc">
-              High-velocity ground-effect skimming vehicles screaming across the water surface armed with rapid laser mounts, rocket pods, and hypersonic agility.
-            </p>
-            <div class="special-tour-footer">
-              <span class="special-tour-tag">Ekranoplans Only</span>
-              <a href="https://discord.gg/6sPeeaY6bj" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-xs">Discord Alerts</a>
-            </div>
-          </article>
-        </div>
-
-        <!-- Concept Tournaments Strip -->
-        <div class="concepts-banner">
-          <div class="concepts-header">
-            <span class="concepts-kicker">NEXT-GEN TOURNAMENT LAB</span>
-            <h3 class="concepts-title">Upcoming Unique Concepts Under Development</h3>
-            <p class="concepts-desc">We regularly innovate and bring new tournament doctrines into the Survivor arena. Here's what's currently in the tactical pipeline:</p>
-          </div>
-          <div class="concepts-grid">
-            <div class="concept-item">
-              <img src="MW Icons/Units/Frigate.png" alt="Frigate" class="concept-icon">
-              <strong>Frigate Blitz</strong>
-              <small>Wolfpack Escorts</small>
-              <p>Ultra-agile light combatants focusing on precision maneuvering, fast reload guns, and rapid response team synergy.</p>
-            </div>
-            <div class="concept-item">
-              <img src="MW Icons/Units/LAV.png" alt="Hover" class="concept-icon">
-              <strong>Hover Warfare</strong>
-              <small>Amphibious Air-Cushion</small>
-              <p>High-speed hovercraft skipping across shallows and open seas for ambush lightning strikes and surprise maneuvers.</p>
-            </div>
-            <div class="concept-item">
-              <img src="MW Icons/Units/Destroyer.png" alt="ASL" class="concept-icon">
-              <strong>ASL (Anti-Sub League)</strong>
-              <small>Combined Arms ASW</small>
-              <p>Dedicated anti-submarine hunter-killer warfare matching specialized helicopter & surface fleets against wolfpacks.</p>
-            </div>
-          </div>
-          <div class="concepts-action">
-            <span>Got a unique tournament concept to suggest?</span>
-            <a href="https://discord.gg/6sPeeaY6bj" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-              <span>Propose in Discord</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRIZE LIST FOR EACH EVENT -->
-    <section class="section" id="prizes">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-kicker">OFFICIAL TOURNAMENT REWARDS</span>
-          <h2 class="section-title">PRIZE LIST <span>FOR EACH EVENT</span></h2>
-          <p class="section-lead">
-            Official prize pool matrix across all 4 competitive Survivor formats. Champions earn verified titles, game assets, Artcoins, HD currency, and premium passes.
-          </p>
-        </div>
-
-        <div class="prize-matrix-wrapper">
-          <!-- 4 Event Switcher Tabs -->
-          <div class="prize-filter-bar" role="tablist">
-            <button class="prize-filter-btn active" data-event="parallel-tour">
-              <span>Survivor Tour</span>
-              <small>Parallel Tour</small>
-            </button>
-            <button class="prize-filter-btn" data-event="main-tour">
-              <span>Survivor Tour</span>
-              <small>Main Tour</small>
-            </button>
-            <button class="prize-filter-btn" data-event="monthly-gacha">
-              <span>Survivor Tour</span>
-              <small>Monthly Gacha</small>
-            </button>
-            <button class="prize-filter-btn" data-event="teams-tour">
-              <span>Survivor Teams</span>
-              <small>MonthlyTour</small>
-            </button>
-          </div>
-
-          <!-- Dynamic Prize Showcase Grid populated by js/app.js -->
-          <div id="prizeShowcase" class="prize-showcase">
-            <!-- Populated by initPrizeMatrix in js/app.js -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MATCH VIDEOS & MEDIA HUB -->
-    <section class="section" id="videos" style="background: var(--bg-surface);">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-kicker">BROADCAST & REPLAYS</span>
-          <h2 class="section-title">MATCH VIDEOS & <span>YOUTUBE CHANNEL</span></h2>
-          <p class="section-lead">
-            Catch full tournament match broadcasts, highlight vods, and official Survivor battle reels.
-          </p>
-        </div>
-
-        <div class="video-hub-grid">
-          <!-- Saturday Match Videos -->
-          <a href="https://discord.com/channels/1050414982417887283/1512434301445210224" target="_blank" rel="noopener noreferrer" class="video-card" id="linkSatVideos">
-            <span class="video-card-badge">SATURDAY REPLAYS</span>
-            <h3 class="video-card-title">Saturday Match Videos</h3>
-            <p class="video-card-desc">Full match recordings, team perspective streams, and knockout round footage from Saturday tournaments.</p>
-            <span class="video-card-cta">Watch Saturday Matches →</span>
-          </a>
-
-          <!-- Sunday Match Videos -->
-          <a href="https://discord.com/channels/1050414982417887283/1125056647321108621" target="_blank" rel="noopener noreferrer" class="video-card" id="linkSunVideos">
-            <span class="video-card-badge" style="color: var(--accent-gold);">SUNDAY REPLAYS</span>
-            <h3 class="video-card-title">Sunday Match Videos</h3>
-            <p class="video-card-desc">Championship tier finals, overtime dogfights, and masterclass naval strikes recorded from Sunday events.</p>
-            <span class="video-card-cta" style="color: var(--accent-gold);">Watch Sunday Matches →</span>
-          </a>
-
-          <!-- Official YouTube Channel -->
-          <a href="https://youtube.com/@insfourtyseven7711?si=yuTAbnCFT_ipY31N" target="_blank" rel="noopener noreferrer" class="video-card" id="linkYouTube">
-            <span class="video-card-badge" style="color: #ff3347;">OFFICIAL CHANNEL</span>
-            <h3 class="video-card-title">Survivor YouTube Channel</h3>
-            <p class="video-card-desc">Subscribe to our official YouTube channel for high-definition tournament montages, ship loadout guides, and streams.</p>
-            <span class="video-card-cta" style="color: #ff3347;">Visit YouTube Channel →</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- SZONE WORXZ CREATIVE TEAM & SINGLE-CARD POSTER GALLERY -->
-    <section class="section" id="gallery" style="background: var(--bg-surface);">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-kicker">OFFICIAL CREATIVE TEAM</span>
-          <h2 class="section-title">SZONE WORXZ & <span>TOURNAMENT POSTER GALLERY</span></h2>
-          <p class="section-lead">
-            Meet the official design division crafting Survivor [M47W]'s signature visual identity, and swipe through the full collection of championship tournament posters.
-          </p>
-        </div>
-
-        <!-- SZone WorXz Studio Showcase Box -->
-        <div class="szone-studio-banner">
-          <div class="szone-brand-col">
-            <div class="szone-logo-halo">
-              <img src="Assets/SZoneWorXz.png" alt="SZone WorXz Official Logo" class="szone-logo-img">
-            </div>
-            <div class="szone-brand-meta">
-              <span class="tactical-badge badge-gold">OFFICIAL ARTIST TEAM</span>
-              <h3 class="szone-studio-title">SZone WorXz</h3>
-              <p class="szone-studio-tagline">Survivor M47W Creative & Visual Arts Powerhouse</p>
-              <p class="szone-studio-desc">
-                From high-octane tournament posters to custom combat badges and server branding, SZone WorXz elevates competitive Modern Warships with tier-one visual prestige.
-              </p>
-            </div>
-          </div>
-
-          <!-- 4 Artist Team Members Grid -->
-          <div class="szone-artists-grid">
-            <!-- gocodes -->
-            <div class="szone-artist-chip">
-              <div class="artist-badge-avatars">
-                <img src="MW Icons/Ranks/Rank61.png" alt="Rank 61" class="artist-rank-img">
-                <img src="MW Icons/Title/MW_TitleSystem_TitleIconLegend_Hires.png" alt="Legend" class="artist-title-img">
-              </div>
-              <div class="artist-info">
-                <strong class="artist-name">gocodes</strong>
-                <span class="artist-role-tag role-founder">Founder & Creative Lead</span>
-              </div>
-            </div>
-
-            <!-- hokage -->
-            <div class="szone-artist-chip">
-              <div class="artist-badge-avatars">
-                <img src="MW Icons/Ranks/Rank60.png" alt="Rank 60" class="artist-rank-img">
-                <img src="MW Icons/Title/MW_TitleSystem_TitleIconLegend_Hires.png" alt="Legend" class="artist-title-img">
-              </div>
-              <div class="artist-info">
-                <strong class="artist-name">hokage</strong>
-                <span class="artist-role-tag role-lead">Lead Visual Artist</span>
-              </div>
-            </div>
-
-            <!-- vaibhavsharma0608_24692 -->
-            <div class="szone-artist-chip">
-              <div class="artist-badge-avatars">
-                <img src="MW Icons/Ranks/Rank56.png" alt="Rank 56" class="artist-rank-img">
-                <img src="MW Icons/Title/MW_TitleSystem_TitleIconHero_Hires.png" alt="Hero" class="artist-title-img">
-              </div>
-              <div class="artist-info">
-                <strong class="artist-name">vaibhavsharma0608_24692</strong>
-                <span class="artist-role-tag role-artist">Tournament Poster Artist</span>
-              </div>
-            </div>
-
-            <!-- kakkarot0276 -->
-            <div class="szone-artist-chip">
-              <div class="artist-badge-avatars">
-                <img src="MW Icons/Ranks/Rank55.png" alt="Rank 55" class="artist-rank-img">
-                <img src="MW Icons/Title/MW_TitleSystem_TitleIcon_Epic_Hires.png" alt="Epic" class="artist-title-img">
-              </div>
-              <div class="artist-info">
-                <strong class="artist-name">kakkarot0276</strong>
-                <span class="artist-role-tag role-artist">Graphic & Asset Designer</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Single-Card Swipeable Poster Gallery -->
-        <div class="poster-gallery-wrapper">
-          <div class="gallery-controls-bar">
-            <div class="gallery-instructions">
-              <span class="tactical-pulse-dot"></span>
-              <span><strong>INTERACTIVE POSTER FRAME:</strong> Swipe left & right on mobile, drag on desktop, or use arrow keys</span>
-            </div>
-            <div class="gallery-auto-control">
-              <button class="btn btn-outline btn-xs" id="galleryAutoplayToggle" aria-label="Toggle Auto-Slide">
-                <span id="autoplayStatusText">⏸ Auto: On</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Single Centered Swipe Card -->
-          <article class="single-poster-card" id="singlePosterCard" tabindex="0" aria-label="Tournament Poster Viewer">
-            <!-- Card Header Bar -->
-            <div class="poster-card-topbar">
-              <div class="poster-brand-tag">
-                <img src="Assets/SZoneWorXz.png" alt="SZone" class="mini-szone-icon">
-                <span class="poster-cat-badge" id="posterCategoryBadge">Saturday Championship</span>
-              </div>
-              <div class="poster-top-actions">
-                <span class="poster-counter-badge" id="posterCounterBadge">01 / 12</span>
-                <button class="poster-zoom-btn" id="btnPosterZoom" title="Open Fullscreen View" aria-label="Open Fullscreen View">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <polyline points="9 21 3 21 3 15"></polyline>
-                    <line x1="21" y1="3" x2="14" y2="10"></line>
-                    <line x1="3" y1="21" x2="10" y2="14"></line>
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <!-- Poster Display Canvas & Nav Arrows -->
-            <div class="poster-stage" id="posterStage">
-              <!-- Left Navigation Arrow -->
-              <button class="poster-nav-btn prev" id="galleryPrevBtn" aria-label="Previous Poster" title="Previous (Left Arrow)">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-              </button>
-
-              <!-- Image Frame -->
-              <div class="poster-img-container" id="posterImgContainer">
-                <img id="posterCurrentImg" src="Assets/MW Tournament Posters/Freedom_Sat.jpg" alt="Freedom Saturday Tournament Poster" class="poster-image" draggable="false">
-                <div class="poster-drag-indicator" id="dragIndicator">
-                  <span>← Swipe Left / Right →</span>
-                </div>
-              </div>
-
-              <!-- Right Navigation Arrow -->
-              <button class="poster-nav-btn next" id="galleryNextBtn" aria-label="Next Poster" title="Next (Right Arrow)">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
-            </div>
-
-            <!-- Poster Caption & Credit Bar -->
-            <div class="poster-card-caption">
-              <div class="poster-title-wrap">
-                <h3 class="poster-title" id="posterCurrentTitle">Freedom Saturday Tournament</h3>
-                <p class="poster-subtitle" id="posterCurrentSubtitle">Official Survivor Weekend Cup</p>
-              </div>
-              <div class="poster-actions-row">
-                <span class="poster-credit-pill">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                  </svg>
-                  <span>Designed by SZone WorXz</span>
-                </span>
-                <button class="btn btn-outline btn-xs" id="btnCardZoom">
-                  <span>Fullscreen View</span>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Interactive Pagination Dots Bar -->
-          <div class="poster-dots-wrapper">
-            <div class="poster-dots-bar" id="posterDotsBar" role="tablist" aria-label="Poster Selector">
-              <!-- Dots dynamically generated by js/app.js -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Poster Fullscreen Lightbox Modal -->
-    <div class="poster-lightbox" id="posterLightbox" aria-hidden="true" role="dialog" aria-label="Tournament Poster Fullscreen">
-      <div class="lightbox-overlay" id="lightboxOverlay"></div>
-      <div class="lightbox-content">
-        <button class="lightbox-close" id="lightboxClose" aria-label="Close Lightbox">✕</button>
-        <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous Poster">❮</button>
-        <div class="lightbox-img-wrap">
-          <img src="Assets/MW Tournament Posters/Freedom_Sat.jpg" alt="Poster Full View" id="lightboxImg">
-          <div class="lightbox-caption" id="lightboxCaption">
-            <strong>Freedom Saturday Tournament</strong>
-            <span>Designed by SZone WorXz</span>
-          </div>
-        </div>
-        <button class="lightbox-nav next" id="lightboxNext" aria-label="Next Poster">❯</button>
-      </div>
-    </div>
-
-    <!-- STAFF & TOURNAMENT MARSHALS (NO DUPLICATE NAMES) -->
-    <section class="section" id="staff">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-kicker">SERVER LEADERSHIP</span>
-          <h2 class="section-title">TOURNAMENT <span>STAFF & MARSHALS</span></h2>
-          <p class="section-lead">
-            The dedicated team orchestrating brackets, arbitration, technical systems, and player support. Click <strong>DM on Discord</strong> on any profile to connect directly.
-          </p>
-        </div>
-
-        <!-- Exact Role Filter Tabs -->
-        <div class="roster-filter-bar" role="tablist">
-          <button class="roster-filter-btn active" data-filter="all">All Staff (16)</button>
-          <button class="roster-filter-btn" data-filter="Owner">Owner (1)</button>
-          <button class="roster-filter-btn" data-filter="Admin">Admins (3)</button>
-          <button class="roster-filter-btn" data-filter="SuperAdmin">SuperAdmins (6)</button>
-          <button class="roster-filter-btn" data-filter="Commander">Commanders (10)</button>
-          <button class="roster-filter-btn" data-filter="Support">Support (11)</button>
-          <button class="roster-filter-btn" data-filter="IT">IT Support (1)</button>
-          <button class="roster-filter-btn" data-filter="Artist">Artists (4)</button>
-        </div>
-
-        <!-- Dynamic Staff Cards Grid (Badges only, no LVL text) -->
-        <div class="roster-grid" id="staffGrid">
-          <!-- Populated by js/app.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- ARENA INTERNATIONAL PARTNER SECTION -->
-    <section class="section" id="partner" style="background: var(--bg-surface);">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-kicker">STRATEGIC ALLIANCE</span>
-          <h2 class="section-title">ARENA INTERNATIONAL <span>PARTNER HUB</span></h2>
-          <p class="section-lead">
-            Survivor M47W works in close cooperation with Arena International Server for cross-server tournaments and global events.
-          </p>
-        </div>
-
-        <div class="arena-partner-box">
-          <div class="arena-gif-frame">
-            <img src="Assets/AI server.gif" alt="Arena International Server Animation" loading="lazy">
-          </div>
-
-          <div class="arena-partner-copy">
-            <span class="section-kicker" style="background: rgba(255, 255, 255, 0.08); color: #ffffff; border-color: rgba(255, 255, 255, 0.2);">OFFICIAL PARTNER</span>
-            <h3>Arena International Server</h3>
-            <p>
-              Arena International is an international Modern Warships hub providing high-level scrim coordination, collaborative tournament brackets, and unified player support alongside Survivor M47W.
-            </p>
-            <div class="arena-partner-actions">
-              <a href="https://discord.gg/cwB66GNWwY" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="linkArenaServer">
-                <span>Join Arena International</span>
-              </a>
-              <a href="https://discord.com/channels/1063794604798902353/1457753365437087804" target="_blank" rel="noopener noreferrer" class="btn btn-outline" id="linkArenaSupport">
-                <span>Arena Support Ticket</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SUPPORT & SERVER BOOST HUB -->
-    <section class="section" id="support">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-kicker">DISCORD INFRASTRUCTURE</span>
-          <h2 class="section-title">TOURNAMENT <span>SUPPORT & BOOST PERKS</span></h2>
-          <p class="section-lead">
-            Direct access to official mediation tickets, dispute handling, and Discord boost roles.
-          </p>
-        </div>
-
-        <div class="support-grid">
-          <!-- Support Ticket -->
-          <article class="support-card">
-            <div class="support-icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-              </svg>
-            </div>
-            <h3>Tournament Support Ticket</h3>
-            <p>
-              Have a match dispute, bracket inquiry, technical issue, or scrim question? Open a direct ticket with our Tournament Staff & Support marshals.
-            </p>
-            <a href="https://discord.com/channels/1050414982417887283/1246124680889241741" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="linkSupportTicket">
-              <span>Open Support Ticket</span>
-            </a>
-          </article>
-
-          <!-- Server Boost Perks -->
-          <article class="support-card">
-            <div class="support-icon icon-boost">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-              </svg>
-            </div>
-            <h3>Discord Server Boost Perks</h3>
-            <p>
-              Boost the Survivor Tournament Server to unlock exclusive custom server badges, priority bracket seeding notifications, VIP channels, and high-bitrate streaming.
-            </p>
-            <a href="https://discord.com/channels/1050414982417887283/1148118134398668922" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="border-color: #f47fff; color: #f47fff;">
-              <span>Check Boost Perks</span>
-            </a>
-          </article>
-        </div>
       </div>
     </section>
   </main>
@@ -1077,7 +455,7 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="Assets/logo.png" alt="Survivor M47W Logo">
+          <img src="assets/images/logo.png" alt="Survivor M47W Logo">
           <div>
             <strong style="font-family: var(--font-display); font-size: 1.1rem; color: #ffffff;">SURVIVOR [M47W]</strong>
             <p style="font-size: 0.8rem; color: var(--text-muted);">Modern Warships Tournament Server • 297+ Events • Owner: gocodes</p>
@@ -1100,7 +478,7 @@
 
       <div class="footer-disclaimer">
         <p>
-          <strong>Disclaimer:</strong> Survivor [M47W] is an independent tournament community. Modern Warships and all related media are property of Artstorm LLC.
+          <strong>Disclaimer:</strong> Survivor [M47W] is an independent competitive community. Modern Warships and all related media are property of Artstorm LLC.
         </p>
       </div>
 
@@ -1108,7 +486,7 @@
         <div>© 2026 Survivor [M47W] Tournament Server. All Rights Reserved.</div>
         <div class="footer-credits">
           <span>Crafted for Survivor M47W</span>
-          <img src="Assets/SZoneWorXz.png" alt="SZone WorXz">
+          <img src="assets/images/szone-worxz.png" alt="SZone WorXz">
         </div>
       </div>
     </div>
