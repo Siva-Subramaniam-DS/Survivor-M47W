@@ -98,6 +98,8 @@ function initDynamicLinks() {
   bind('linkNavSupport', cfg.links.supportTicket);
   bind('linkYouTube', cfg.links.youtubeChannel);
   bind('linkFooterYouTube', cfg.links.youtubeChannel);
+  bind('linkArtstormServer', cfg.links.artstormServer);
+  bind('linkMWCommunity', cfg.links.mwCommunity);
   bind('linkArenaServer', cfg.links.arenaServer);
   bind('linkArenaSupport', cfg.links.arenaSupportTicket);
 }
@@ -128,6 +130,9 @@ function initStaffRoster() {
       return true;
     });
 
+    // Only these 5 members have DM options enabled
+    const allowedDmMembers = ['daria', 'osiris', 'gocodes', 'hokage', 'cosmic'];
+
     filtered.forEach(member => {
       const card = document.createElement('article');
       let extraClass = '';
@@ -148,9 +153,26 @@ function initStaffRoster() {
         return `<span class="staff-pill ${cls}">${r}</span>`;
       }).join(' ');
 
-      const dmUrl = member.discordId 
-        ? `https://discord.com/users/${member.discordId}`
-        : `https://discord.gg/6sPeeaY6bj`;
+      const memberClean = (member.name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      const isDmAllowed = allowedDmMembers.some(name => memberClean.includes(name));
+
+      let dmActionHtml = '';
+      if (isDmAllowed) {
+        const dmUrl = member.discordId 
+          ? `https://discord.com/users/${member.discordId}`
+          : `https://discord.gg/6sPeeaY6bj`;
+
+        dmActionHtml = `
+          <div class="staff-card-actions">
+            <a href="${dmUrl}" target="_blank" rel="noopener noreferrer" class="btn-staff-dm" data-discord-id="${member.discordId || ''}" data-name="${escapeHtml(member.name)}">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.317 4.369A19.791 19.791 0 0 0 15.885 3c-.191.328-.403.771-.552 1.116a18.27 18.27 0 0 0-6.666 0A12.64 12.64 0 0 0 8.115 3a19.736 19.736 0 0 0-4.432 1.369C.887 8.58.127 12.687.507 16.737a19.92 19.92 0 0 0 5.993 3.026c.481-.657.91-1.35 1.282-2.076a12.99 12.99 0 0 1-2.02-.98c.17-.123.336-.25.496-.383 3.894 1.78 8.117 1.78 11.965 0 .162.133.328.26.497.383a12.95 12.95 0 0 1-2.024.982c.372.725.8 1.418 1.282 2.074a19.9 19.9 0 0 0 5.995-3.026c.446-4.693-.762-8.764-3.656-12.368ZM8.02 14.315c-1.182 0-2.157-1.086-2.157-2.419 0-1.332.955-2.418 2.157-2.418 1.212 0 2.177 1.096 2.157 2.418 0 1.333-.955 2.419-2.157 2.419Zm7.96 0c-1.182 0-2.157-1.086-2.157-2.419 0-1.332.955-2.418 2.157-2.418 1.212 0 2.177 1.096 2.157 2.418 0 1.333-.945 2.419-2.157 2.419Z"/>
+              </svg>
+              <span>DM on Discord</span>
+            </a>
+          </div>
+        `;
+      }
 
       card.innerHTML = `
         <div class="roster-card-header">
@@ -164,14 +186,7 @@ function initStaffRoster() {
         <div class="staff-badge-container">
           ${roleBadgesHtml}
         </div>
-        <div class="staff-card-actions">
-          <a href="${dmUrl}" target="_blank" rel="noopener noreferrer" class="btn-staff-dm" data-discord-id="${member.discordId || ''}" data-name="${escapeHtml(member.name)}">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M20.317 4.369A19.791 19.791 0 0 0 15.885 3c-.191.328-.403.771-.552 1.116a18.27 18.27 0 0 0-6.666 0A12.64 12.64 0 0 0 8.115 3a19.736 19.736 0 0 0-4.432 1.369C.887 8.58.127 12.687.507 16.737a19.92 19.92 0 0 0 5.993 3.026c.481-.657.91-1.35 1.282-2.076a12.99 12.99 0 0 1-2.02-.98c.17-.123.336-.25.496-.383 3.894 1.78 8.117 1.78 11.965 0 .162.133.328.26.497.383a12.95 12.95 0 0 1-2.024.982c.372.725.8 1.418 1.282 2.074a19.9 19.9 0 0 0 5.995-3.026c.446-4.693-.762-8.764-3.656-12.368ZM8.02 14.315c-1.182 0-2.157-1.086-2.157-2.419 0-1.332.955-2.418 2.157-2.418 1.212 0 2.177 1.096 2.157 2.418 0 1.333-.955 2.419-2.157 2.419Zm7.96 0c-1.182 0-2.157-1.086-2.157-2.419 0-1.332.955-2.418 2.157-2.418 1.212 0 2.177 1.096 2.157 2.418 0 1.333-.945 2.419-2.157 2.419Z"/>
-            </svg>
-            <span>DM on Discord</span>
-          </a>
-        </div>
+        ${dmActionHtml}
       `;
 
       staffGrid.appendChild(card);
