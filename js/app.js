@@ -3,14 +3,20 @@
  * Tournament Server • Staff Roster & DM Actions • Prize Matrix • Discord Insights
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+function initApp() {
   initNavigation();
   initStaffRoster();
   initDynamicLinks();
   initDiscordInsights();
   initPrizeMatrix();
   initPosterGallery();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
 
 /**
  * Sticky nav & scroll highlight
@@ -179,7 +185,9 @@ function initStaffRoster() {
         const discordId = dmBtn.getAttribute('data-discord-id');
         const staffName = dmBtn.getAttribute('data-name');
         
-        if (!discordId && staffName) {
+        if (discordId) {
+          showToast(`Opening Discord chat with ${staffName}...`);
+        } else if (staffName) {
           if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(staffName);
             showToast(`Copied @${staffName} to clipboard! Direct messaging in Discord...`);
@@ -188,18 +196,37 @@ function initStaffRoster() {
       });
     });
   }
-  }
 
-  renderStaff('all');
+  window.filterStaffRoster = function(filter, activeBtn) {
+    const allBtns = document.querySelectorAll('.roster-filter-btn');
+    allBtns.forEach(b => b.classList.remove('active'));
+    if (activeBtn) {
+      activeBtn.classList.add('active');
+    } else {
+      const match = document.querySelector(`.roster-filter-btn[data-filter="${filter}"]`);
+      if (match) match.classList.add('active');
+    }
+    renderStaff(filter);
+  };
+
+  const filterBar = document.querySelector('.roster-filter-bar');
+  if (filterBar) {
+    filterBar.addEventListener('click', (e) => {
+      const btn = e.target.closest('.roster-filter-btn');
+      if (!btn) return;
+      const filterValue = btn.getAttribute('data-filter') || 'all';
+      window.filterStaffRoster(filterValue, btn);
+    });
+  }
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filterValue = btn.getAttribute('data-filter');
-      renderStaff(filterValue);
+      const filterValue = btn.getAttribute('data-filter') || 'all';
+      window.filterStaffRoster(filterValue, btn);
     });
   });
+
+  renderStaff('all');
 }
 
 /**

@@ -255,7 +255,7 @@ window.SURVIVOR_CONFIG = {
   artstormSupports: [
     {
       name: "Daria",
-      discordId: "",
+      discordId: "967780654316126278",
       primaryRole: "ArtStorm Team",
       organization: "ArtStorm LLC",
       roles: ["ArtStorm Team", "Developer Support", "Support"],
@@ -265,8 +265,8 @@ window.SURVIVOR_CONFIG = {
       description: "Official ArtStorm team representative providing institutional support, developer liaison, and event backing for Survivor M47W tournaments."
     },
     {
-      name: "Osris",
-      discordId: "",
+      name: "Osiris",
+      discordId: "1531539122588745849",
       primaryRole: "ArtStorm Tournament Supervisor",
       organization: "ArtStorm LLC",
       roles: ["Tournament Supervisor", "ArtStorm Team", "Support"],
@@ -280,7 +280,7 @@ window.SURVIVOR_CONFIG = {
   staff: [
     {
       name: "Daria",
-      discordId: "",
+      discordId: "967780654316126278",
       isOwner: false,
       isArtstorm: true,
       primaryRole: "ArtStorm Team",
@@ -289,8 +289,8 @@ window.SURVIVOR_CONFIG = {
       titleIcon: "Assets/icons/title/MW_TitleSystem_TitleIconLegend_Hires.png",
     },
     {
-      name: "Osris",
-      discordId: "",
+      name: "Osiris",
+      discordId: "1531539122588745849",
       isOwner: false,
       isArtstorm: true,
       primaryRole: "ArtStorm Tournament Supervisor",
