@@ -683,120 +683,26 @@ window.SURVIVOR_CONFIG = {
       concept: "Dedicated anti-submarine hunter-killer warfare matching specialized helicopter & surface fleets against wolfpacks."
     }
   ],
-  // Official Tournament Winners Archive & Certified Podium (Synced with Single-Tab Sheet)
-  tournamentWinners: [
-    {
-      tournament: "Saturday",
-      tournamentName: "Saturday Tournament",
-      date: "Week 37, 2026",
-      rank: "1st",
-      rankBadge: "CHAMPION",
-      player: "@Karrar1991 ⚓ 🔹 🌟 ⭐ ✅ [5] 🪽",
-      uid: "FD8239CACC37CEFC",
-      title: "[LEGEND/HERO]",
-      rewards: "3000AC 20000HD premium_30d",
-      status: "Verified"
-    },
-    {
-      tournament: "Saturday",
-      tournamentName: "Saturday Tournament",
-      date: "Week 37, 2026",
-      rank: "2nd",
-      rankBadge: "RUNNER UP",
-      player: "@jubani13 ⚓ 🌟 💖 ✅ [3] 🪽",
-      uid: "658B3A9EBFB0A256",
-      title: "[HERO]",
-      rewards: "2000AC 15000HD premium_14d",
-      status: "Verified"
-    },
-    {
-      tournament: "Saturday",
-      tournamentName: "Saturday Tournament",
-      date: "Week 37, 2026",
-      rank: "3-4th",
-      rankBadge: "SEMI-FINALIST",
-      player: "@GS BŁAZE ⚓ ✅ 9 🪽",
-      uid: "D1A1C4FE35201A19",
-      title: null,
-      rewards: "1000AC 10000HD premium_7d",
-      status: "Verified"
-    },
-    {
-      tournament: "Saturday",
-      tournamentName: "Saturday Tournament",
-      date: "Week 37, 2026",
-      rank: "3-4th",
-      rankBadge: "SEMI-FINALIST",
-      player: "@honghai269 ⚓ ✅ [13] 🪽",
-      uid: "EFE978C892902A32",
-      title: null,
-      rewards: "1000AC 10000HD premium_7d",
-      status: "Verified"
-    },
-    {
-      tournament: "Sunday",
-      tournamentName: "Sunday Tournament",
-      date: "Week 37, 2026",
-      rank: "1st",
-      rankBadge: "CHAMPION",
-      player: "@TITAN_Poseidon ⚓ 🔱 ⭐ [7] 🪽",
-      uid: "A74F91B24E01CD35",
-      title: "[LEGEND/HERO]",
-      rewards: "3000AC 20000HD premium_30d",
-      status: "Verified"
-    },
-    {
-      tournament: "Sunday",
-      tournamentName: "Sunday Tournament",
-      date: "Week 37, 2026",
-      rank: "2nd",
-      rankBadge: "RUNNER UP",
-      player: "@IronClad_Viper ⚓ ⚡ ✅ [4] 🪽",
-      uid: "39CD81E0FA1298BB",
-      title: "[HERO]",
-      rewards: "2000AC 15000HD premium_14d",
-      status: "Verified"
-    },
-    {
-      tournament: "Sunday",
-      tournamentName: "Sunday Tournament",
-      date: "Week 37, 2026",
-      rank: "3-4th",
-      rankBadge: "SEMI-FINALIST",
-      player: "@RedOctober_Sub ⚓ 🌊 [2] 🪽",
-      uid: "810FB92E1094AA77",
-      title: null,
-      rewards: "1000AC 10000HD premium_7d",
-      status: "Verified"
-    },
-    {
-      tournament: "Monthly",
-      tournamentName: "Monthly Tournament",
-      date: "August 2026 Championship",
-      rank: "1st",
-      rankBadge: "CHAMPION",
-      player: "@ApexDominator ⚓ 👑 🌟 [10] 🪽",
-      uid: "8B9230FD54CA1109",
-      title: "[LEGEND/HERO]",
-      rewards: "GACHA SHIP • 20000HD • premium_30d",
-      status: "Grand Champion"
-    },
-    {
-      tournament: "Monthly",
-      tournamentName: "Monthly Tournament",
-      date: "August 2026 Championship",
-      rank: "2nd",
-      rankBadge: "RUNNER UP",
-      player: "@StormLeviathan ⚓ ⚔️ ⭐ [8] 🪽",
-      uid: "66DA4188F9E102AA",
-      title: "[HERO]",
-      rewards: "GACHA ITEM • 15000HD • premium_14d",
-      status: "Runner Up"
-    }
-  ],
-  // Live Sheet Sync Configuration for 1-Tab Google Sheet / Published CSV
+  // Tournament Winners — Fully Dynamic from Google Sheet (Winners tab)
+  // Add winners directly in your Google Sheet; this array stays empty
+  tournamentWinners: [],
+  // Live Sheet Sync Configuration — Published Google Sheet (All 5 Tabs)
+  // Edit your sheet at: https://docs.google.com/spreadsheets/d/1Prd6LYqlt9SssBkA6dRhjvR_-HG8Qajno6lKe9_4Uy0
   sheetSync: {
     enabled: true,
-    sheetCsvUrl: ""
+    baseUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRrxH8IW-eoI77YRoVXfTFvvfIJlyfOW7b28GmMRytSDf1uJXD1M7ibFTTdslWJeWnlszEjnw6Cxrz9/pub?output=csv",
+    tabs: {
+      winners:     { gid: "0",          name: "Winners" },
+      staff:       { gid: "394892988",  name: "Staff" },
+      serverStats: { gid: "1554586700", name: "Server Stats" },
+      links:       { gid: "1334760909", name: "Links" },
+      prizes:      { gid: "388596569",  name: "Prizes" }
+    },
+    // Convenience: direct CSV URLs per tab
+    sheetCsvUrl:        "https://docs.google.com/spreadsheets/d/e/2PACX-1vRrxH8IW-eoI77YRoVXfTFvvfIJlyfOW7b28GmMRytSDf1uJXD1M7ibFTTdslWJeWnlszEjnw6Cxrz9/pub?gid=0&single=true&output=csv",
+    staffCsvUrl:        "https://docs.google.com/spreadsheets/d/e/2PACX-1vRrxH8IW-eoI77YRoVXfTFvvfIJlyfOW7b28GmMRytSDf1uJXD1M7ibFTTdslWJeWnlszEjnw6Cxrz9/pub?gid=394892988&single=true&output=csv",
+    serverStatsCsvUrl:  "https://docs.google.com/spreadsheets/d/e/2PACX-1vRrxH8IW-eoI77YRoVXfTFvvfIJlyfOW7b28GmMRytSDf1uJXD1M7ibFTTdslWJeWnlszEjnw6Cxrz9/pub?gid=1554586700&single=true&output=csv",
+    linksCsvUrl:        "https://docs.google.com/spreadsheets/d/e/2PACX-1vRrxH8IW-eoI77YRoVXfTFvvfIJlyfOW7b28GmMRytSDf1uJXD1M7ibFTTdslWJeWnlszEjnw6Cxrz9/pub?gid=1334760909&single=true&output=csv",
+    prizesCsvUrl:       "https://docs.google.com/spreadsheets/d/e/2PACX-1vRrxH8IW-eoI77YRoVXfTFvvfIJlyfOW7b28GmMRytSDf1uJXD1M7ibFTTdslWJeWnlszEjnw6Cxrz9/pub?gid=388596569&single=true&output=csv"
   }
 };

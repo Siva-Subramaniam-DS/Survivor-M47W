@@ -792,12 +792,13 @@ function initTournamentWinners() {
 
     if (filtered.length === 0) {
       winnersGrid.innerHTML = `
-        <div style="grid-column: 1 / -1; text-align: center; padding: 40px 20px; background: rgba(255,255,255,0.02); border: 1px dashed var(--border-color); border-radius: var(--radius-md);">
-          <p style="font-family: var(--font-display); font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 8px;">
-            No verified scorecards found for this tournament bracket.
+        <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
+          <div style="font-size: 3rem; margin-bottom: 16px;">🏆</div>
+          <p style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 8px; letter-spacing: 0.05em;">
+            Results Will Appear Here After Each Tournament
           </p>
           <span style="font-size: 0.85rem; color: var(--text-muted);">
-            Matches are conducted weekly. Check back soon or view Discord announcement channels.
+            Winners are posted on Discord after every Saturday, Sunday &amp; Monthly tournament. Check back after the next match!
           </span>
         </div>
       `;
