@@ -133,8 +133,8 @@
                 <strong>#saturday-tournament</strong>
               </div>
               <div class="meta-row">
-                <span>Entry:</span>
-                <strong>Open to Verified Captains</strong>
+                <span>Prizes:</span>
+                <strong style="color: var(--accent-gold);">Coming Soon...</strong>
               </div>
             </div>
             <a href="https://discord.com/channels/1050414982417887283/1210456226505170964" target="_blank" rel="noopener noreferrer" class="btn btn-outline-gold" style="width: 100%;">
@@ -162,8 +162,8 @@
                 <strong>#sunday-tournament</strong>
               </div>
               <div class="meta-row">
-                <span>Entry:</span>
-                <strong>Squad & Individual Registration</strong>
+                <span>Prizes:</span>
+                <strong style="color: var(--accent-red);">Coming Soon...</strong>
               </div>
             </div>
             <a href="https://discord.com/channels/1050414982417887283/1051428633106972762" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%;">
@@ -171,38 +171,60 @@
             </a>
           </article>
 
-          <!-- Official Results -->
-          <article class="tournament-card">
+          <!-- Monthly Tournament -->
+          <article class="tournament-card highlight-cyan">
             <div class="tournament-card-top">
-              <span class="tournament-badge-pill" style="background: rgba(56, 200, 255, 0.1); border-color: rgba(56, 200, 255, 0.3); color: var(--accent-cyan);">VERIFIED ARCHIVE</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="var(--accent-cyan)">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-              </svg>
+              <span class="tournament-badge-pill" style="background: rgba(56, 200, 255, 0.1); border-color: rgba(56, 200, 255, 0.3); color: var(--accent-cyan);">MONTHLY CHAMPIONSHIP</span>
+              <span class="live-dot" style="background: var(--accent-cyan); box-shadow: 0 0 10px var(--accent-cyan);"></span>
             </div>
-            <h3 class="tournament-day">Official Results</h3>
+            <h3 class="tournament-day">Monthly Tournament</h3>
             <p class="tournament-desc">
-              Access certified scorecards, bracket logs, and podium winners across all 297+ conducted tournaments.
+              Flagship monthly championship series featuring elite squad brackets, high-tier competition, and certified awards. Register inside the official channel.
             </p>
             <div class="tournament-meta">
               <div class="meta-row">
-                <span>Verification:</span>
-                <strong>SuperAdmin & Marshals</strong>
+                <span>Registration Location:</span>
+                <strong>In Discord Only</strong>
               </div>
               <div class="meta-row">
                 <span>Channel:</span>
-                <strong>#tournament-result</strong>
+                <strong>#monthly-tournament</strong>
               </div>
               <div class="meta-row">
-                <span>Status:</span>
-                <strong>Live Updated</strong>
+                <span>Prizes:</span>
+                <strong style="color: var(--accent-cyan);">Coming Soon...</strong>
               </div>
             </div>
-            <a href="https://discord.com/channels/1050414982417887283/1051473469369491466" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%; border-color: var(--accent-cyan); color: var(--accent-cyan);" id="linkResults">
-              <span>View Results Channel</span>
+            <a href="https://discord.com/channels/1050414982417887283/1393630479177224365" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%; border-color: var(--accent-cyan); color: var(--accent-cyan);" id="linkMonthlyTournament">
+              <span>Register in Discord (#monthly)</span>
             </a>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOURNAMENT WINNERS & PODIUM ARCHIVE -->
+    <section class="section" id="winners" style="background: var(--bg-surface); padding-top: 50px;">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">CERTIFIED SCORECARDS & LEADERBOARD ARCHIVE</span>
+          <h2 class="section-title">TOURNAMENT <span>WINNERS & PODIUM</span></h2>
+          <p class="section-lead">
+            Official verified scorecards, player UIDs, and awarded titles across Saturday, Sunday, and Monthly tournaments. Synced live with server tournament records.
+          </p>
+
+          <!-- Filter Tabs -->
+          <div class="winners-filter-bar" role="tablist">
+            <button type="button" class="btn-winner-filter active" data-filter="all">All Tournaments</button>
+            <button type="button" class="btn-winner-filter" data-filter="Saturday">⚔️ Saturday Tournament</button>
+            <button type="button" class="btn-winner-filter" data-filter="Sunday">🏆 Sunday Tournament</button>
+            <button type="button" class="btn-winner-filter" data-filter="Monthly">👑 Monthly Tournament</button>
+          </div>
+        </div>
+
+        <!-- Dynamic Winners Scorecard Grid -->
+        <div class="winners-scorecard-grid" id="winnersGrid">
+          <!-- Populated dynamically by initTournamentWinners in js/app.js -->
         </div>
       </div>
     </section>

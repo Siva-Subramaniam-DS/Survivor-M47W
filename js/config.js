@@ -20,9 +20,10 @@ window.SURVIVOR_CONFIG = {
     discordServer: "https://discord.gg/6sPeeaY6bj",
     saturdayTournament: "https://discord.com/channels/1050414982417887283/1210456226505170964",
     sundayTournament: "https://discord.com/channels/1050414982417887283/1051428633106972762",
+    monthlyTournament: "https://discord.com/channels/1050414982417887283/1393630479177224365",
     saturdayVideos: "https://discord.com/channels/1050414982417887283/1512434301445210224",
     sundayVideos: "https://discord.com/channels/1050414982417887283/1125056647321108621",
-    tournamentResults: "https://discord.com/channels/1050414982417887283/1051473469369491466",
+    tournamentResults: "https://discord.com/channels/1050414982417887283/1393630479177224365",
     serverBoost: "https://discord.com/channels/1050414982417887283/1148118134398668922",
     supportTicket: "https://discord.com/channels/1050414982417887283/1246124680889241741",
     youtubeChannel: "https://youtube.com/@insfourtyseven7711?si=yuTAbnCFT_ipY31N",
@@ -281,26 +282,6 @@ window.SURVIVOR_CONFIG = {
   // Server Staff and Official ArtStorm Supports with exact server roles & direct Discord DM link support
   staff: [
     {
-      name: "Daria",
-      discordId: "967780654316126278",
-      isOwner: false,
-      isArtstorm: true,
-      primaryRole: "ArtStorm Team",
-      roles: ["ArtStorm Team", "Support"],
-      rankIcon: "Assets/images/artstorm-logo.png",
-      titleIcon: "Assets/icons/title/MW_TitleSystem_TitleIconLegend_Hires.png",
-    },
-    {
-      name: "Osiris",
-      discordId: "1531539122588745849",
-      isOwner: false,
-      isArtstorm: true,
-      primaryRole: "ArtStorm Tournament Supervisor",
-      roles: ["Tournament Supervisor", "ArtStorm Team", "Support"],
-      rankIcon: "Assets/images/artstorm-logo.png",
-      titleIcon: "Assets/icons/title/MW_TitleSystem_TitleIconLegend_Hires.png",
-    },
-    {
       name: "gocodes",
       discordId: "",
       isOwner: true,
@@ -443,6 +424,26 @@ window.SURVIVOR_CONFIG = {
       roles: ["Artist"],
       rankIcon: "Assets/icons/ranks/Rank55.png",
       titleIcon: "Assets/icons/title/MW_TitleSystem_TitleIcon_Epic_Hires.png",
+    },
+    {
+      name: "Daria",
+      discordId: "967780654316126278",
+      isOwner: false,
+      isArtstorm: true,
+      primaryRole: "ArtStorm Team",
+      roles: ["ArtStorm Team", "Support"],
+      rankIcon: "Assets/images/artstorm-logo.png",
+      titleIcon: "Assets/icons/title/MW_TitleSystem_TitleIconLegend_Hires.png",
+    },
+    {
+      name: "Osiris",
+      discordId: "1531539122588745849",
+      isOwner: false,
+      isArtstorm: true,
+      primaryRole: "ArtStorm Tournament Supervisor",
+      roles: ["Tournament Supervisor", "ArtStorm Team", "Support"],
+      rankIcon: "Assets/images/artstorm-logo.png",
+      titleIcon: "Assets/icons/title/MW_TitleSystem_TitleIconLegend_Hires.png",
     }
   ],
   // SZone WorXz - Official Survivor Creative & Poster Artist Team
@@ -681,5 +682,121 @@ window.SURVIVOR_CONFIG = {
       icon: "Assets/icons/units/Destroyer.png",
       concept: "Dedicated anti-submarine hunter-killer warfare matching specialized helicopter & surface fleets against wolfpacks."
     }
-  ]
+  ],
+  // Official Tournament Winners Archive & Certified Podium (Synced with Single-Tab Sheet)
+  tournamentWinners: [
+    {
+      tournament: "Saturday",
+      tournamentName: "Saturday Tournament",
+      date: "Week 37, 2026",
+      rank: "1st",
+      rankBadge: "CHAMPION",
+      player: "@Karrar1991 ⚓ 🔹 🌟 ⭐ ✅ [5] 🪽",
+      uid: "FD8239CACC37CEFC",
+      title: "[LEGEND/HERO]",
+      rewards: "3000AC 20000HD premium_30d",
+      status: "Verified"
+    },
+    {
+      tournament: "Saturday",
+      tournamentName: "Saturday Tournament",
+      date: "Week 37, 2026",
+      rank: "2nd",
+      rankBadge: "RUNNER UP",
+      player: "@jubani13 ⚓ 🌟 💖 ✅ [3] 🪽",
+      uid: "658B3A9EBFB0A256",
+      title: "[HERO]",
+      rewards: "2000AC 15000HD premium_14d",
+      status: "Verified"
+    },
+    {
+      tournament: "Saturday",
+      tournamentName: "Saturday Tournament",
+      date: "Week 37, 2026",
+      rank: "3-4th",
+      rankBadge: "SEMI-FINALIST",
+      player: "@GS BŁAZE ⚓ ✅ 9 🪽",
+      uid: "D1A1C4FE35201A19",
+      title: null,
+      rewards: "1000AC 10000HD premium_7d",
+      status: "Verified"
+    },
+    {
+      tournament: "Saturday",
+      tournamentName: "Saturday Tournament",
+      date: "Week 37, 2026",
+      rank: "3-4th",
+      rankBadge: "SEMI-FINALIST",
+      player: "@honghai269 ⚓ ✅ [13] 🪽",
+      uid: "EFE978C892902A32",
+      title: null,
+      rewards: "1000AC 10000HD premium_7d",
+      status: "Verified"
+    },
+    {
+      tournament: "Sunday",
+      tournamentName: "Sunday Tournament",
+      date: "Week 37, 2026",
+      rank: "1st",
+      rankBadge: "CHAMPION",
+      player: "@TITAN_Poseidon ⚓ 🔱 ⭐ [7] 🪽",
+      uid: "A74F91B24E01CD35",
+      title: "[LEGEND/HERO]",
+      rewards: "3000AC 20000HD premium_30d",
+      status: "Verified"
+    },
+    {
+      tournament: "Sunday",
+      tournamentName: "Sunday Tournament",
+      date: "Week 37, 2026",
+      rank: "2nd",
+      rankBadge: "RUNNER UP",
+      player: "@IronClad_Viper ⚓ ⚡ ✅ [4] 🪽",
+      uid: "39CD81E0FA1298BB",
+      title: "[HERO]",
+      rewards: "2000AC 15000HD premium_14d",
+      status: "Verified"
+    },
+    {
+      tournament: "Sunday",
+      tournamentName: "Sunday Tournament",
+      date: "Week 37, 2026",
+      rank: "3-4th",
+      rankBadge: "SEMI-FINALIST",
+      player: "@RedOctober_Sub ⚓ 🌊 [2] 🪽",
+      uid: "810FB92E1094AA77",
+      title: null,
+      rewards: "1000AC 10000HD premium_7d",
+      status: "Verified"
+    },
+    {
+      tournament: "Monthly",
+      tournamentName: "Monthly Tournament",
+      date: "August 2026 Championship",
+      rank: "1st",
+      rankBadge: "CHAMPION",
+      player: "@ApexDominator ⚓ 👑 🌟 [10] 🪽",
+      uid: "8B9230FD54CA1109",
+      title: "[LEGEND/HERO]",
+      rewards: "GACHA SHIP • 20000HD • premium_30d",
+      status: "Grand Champion"
+    },
+    {
+      tournament: "Monthly",
+      tournamentName: "Monthly Tournament",
+      date: "August 2026 Championship",
+      rank: "2nd",
+      rankBadge: "RUNNER UP",
+      player: "@StormLeviathan ⚓ ⚔️ ⭐ [8] 🪽",
+      uid: "66DA4188F9E102AA",
+      title: "[HERO]",
+      rewards: "GACHA ITEM • 15000HD • premium_14d",
+      status: "Runner Up"
+    }
+  ],
+  // Live Sheet Sync Configuration for 1-Tab Google Sheet / Published CSV
+  sheetSync: {
+    enabled: true,
+    sheetCsvUrl: ""
+  }
 };

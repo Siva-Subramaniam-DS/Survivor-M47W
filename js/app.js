@@ -11,6 +11,7 @@ function initApp() {
   initPrizeMatrix();
   initPosterGallery();
   initInspectProtection();
+  initTournamentWinners();
 }
 
 if (document.readyState === 'loading') {
@@ -149,6 +150,7 @@ function initDynamicLinks() {
   bind('linkSatVideos', cfg.links.saturdayVideos);
   bind('linkSunVideos', cfg.links.sundayVideos);
   bind('linkResults', cfg.links.tournamentResults);
+  bind('linkMonthlyTournament', cfg.links.monthlyTournament);
   bind('linkServerBoost', cfg.links.serverBoost);
   bind('linkSupportTicket', cfg.links.supportTicket);
   bind('linkNavSupport', cfg.links.supportTicket);
@@ -186,8 +188,8 @@ function initStaffRoster() {
       return true;
     });
 
-    // Only these 5 members have DM options enabled
-    const allowedDmMembers = ['daria', 'osiris', 'gocodes', 'hokage', 'cosmic'];
+    // Only these 3 server staff members have DM options enabled (Daria & Osiris excluded)
+    const allowedDmMembers = ['gocodes', 'hokage', 'cosmic'];
 
     filtered.forEach(member => {
       const card = document.createElement('article');
@@ -762,4 +764,193 @@ function initPosterGallery() {
   // Initial render of first poster
   renderPoster(0, 'none');
   resetAutoplayTimer();
+}
+
+/**
+ * Render Official Tournament Winners & Podium Scorecards
+ * Synced with Config and Single-Tab Google Sheet / Published CSV
+ */
+function initTournamentWinners() {
+  const winnersGrid = document.getElementById('winnersGrid');
+  if (!winnersGrid) return;
+
+  const cfg = window.SURVIVOR_CONFIG || {};
+  let winnersData = Array.isArray(cfg.tournamentWinners) ? [...cfg.tournamentWinners] : [];
+
+  const filterBtns = document.querySelectorAll('.btn-winner-filter');
+  let currentFilter = 'all';
+
+  function renderWinners(filter = 'all') {
+    winnersGrid.innerHTML = '';
+
+    const filtered = winnersData.filter(item => {
+      if (filter === 'all') return true;
+      const t = (item.tournament || '').toLowerCase();
+      const f = filter.toLowerCase();
+      return t.includes(f) || f.includes(t);
+    });
+
+    if (filtered.length === 0) {
+      winnersGrid.innerHTML = `
+        <div style="grid-column: 1 / -1; text-align: center; padding: 40px 20px; background: rgba(255,255,255,0.02); border: 1px dashed var(--border-color); border-radius: var(--radius-md);">
+          <p style="font-family: var(--font-display); font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 8px;">
+            No verified scorecards found for this tournament bracket.
+          </p>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">
+            Matches are conducted weekly. Check back soon or view Discord announcement channels.
+          </span>
+        </div>
+      `;
+      return;
+    }
+
+    filtered.forEach(winner => {
+      const card = document.createElement('article');
+      let rankCls = 'rank-3';
+      let rankBadgeCls = 'badge-bronze';
+      const rankStr = String(winner.rank || '');
+      if (rankStr.includes('1')) {
+        rankCls = 'rank-1';
+        rankBadgeCls = 'badge-gold';
+      } else if (rankStr.includes('2')) {
+        rankCls = 'rank-2';
+        rankBadgeCls = 'badge-silver';
+      }
+
+      let tourBadgeCls = 'tour-saturday';
+      const tourLower = (winner.tournament || '').toLowerCase();
+      if (tourLower.includes('sun')) tourBadgeCls = 'tour-sunday';
+      else if (tourLower.includes('month')) tourBadgeCls = 'tour-monthly';
+
+      const tourDisplayName = winner.tournamentName || (tourLower.includes('tour') ? winner.tournament : `${winner.tournament} Tournament`);
+
+      // Reward chips
+      const rewardsList = (winner.rewards || '').split(/[•, ]+/).filter(Boolean);
+      const rewardsChipsHtml = rewardsList.map(r => `<span class="winner-prize-chip">${escapeHtml(r)}</span>`).join(' ');
+
+      card.className = `winner-card ${rankCls}`;
+      card.innerHTML = `
+        <div class="winner-card-header">
+          <span class="winner-tour-badge ${tourBadgeCls}">
+            ${escapeHtml(tourDisplayName)}
+          </span>
+          <span class="winner-rank-badge ${rankBadgeCls}">
+            ${escapeHtml(winner.rank)} ${winner.rankBadge ? `• ${escapeHtml(winner.rankBadge)}` : ''}
+          </span>
+        </div>
+
+        <div class="winner-player-info">
+          <div class="winner-player-handle">${escapeHtml(winner.player)}</div>
+          <div class="winner-date-edition">${escapeHtml(winner.date || 'Certified Tournament Record')}</div>
+        </div>
+
+        <div class="winner-uid-box">
+          <div>
+            <div class="winner-uid-label">Player Game ID</div>
+            <div class="winner-uid-code">${escapeHtml(winner.uid)}</div>
+          </div>
+          <button type="button" class="btn-copy-uid" data-uid="${escapeHtml(winner.uid)}" title="Copy Game ID">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>Copy</span>
+          </button>
+        </div>
+
+        <div class="winner-rewards-box">
+          ${winner.title ? `
+            <div class="winner-title-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              <span>${escapeHtml(winner.title)}</span>
+            </div>
+          ` : ''}
+          <div class="winner-prizes-chips">
+            ${rewardsChipsHtml}
+          </div>
+        </div>
+      `;
+
+      winnersGrid.appendChild(card);
+    });
+
+    // Bind Copy UID button actions
+    winnersGrid.querySelectorAll('.btn-copy-uid').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const uid = btn.getAttribute('data-uid');
+        if (uid && navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(uid).then(() => {
+            showToast(`Copied UID ${uid} to clipboard!`);
+          }).catch(() => {
+            showToast(`UID: ${uid}`);
+          });
+        } else if (uid) {
+          showToast(`UID: ${uid}`);
+        }
+      });
+    });
+  }
+
+  // Filter tab buttons
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = btn.getAttribute('data-filter') || 'all';
+      renderWinners(currentFilter);
+    });
+  });
+
+  // Optional Live Google Sheet / CSV fetch support for 1-tab sheet
+  if (cfg.sheetSync && cfg.sheetSync.enabled && cfg.sheetSync.sheetCsvUrl) {
+    fetch(cfg.sheetSync.sheetCsvUrl)
+      .then(res => res.text())
+      .then(csvText => {
+        const parsedWinners = parseSheetCsv(csvText);
+        if (parsedWinners && parsedWinners.length > 0) {
+          winnersData = parsedWinners;
+          renderWinners(currentFilter);
+        }
+      })
+      .catch(err => {
+        console.warn('Live sheet sync fallback to local config:', err);
+      });
+  }
+
+  renderWinners('all');
+}
+
+/**
+ * Parse Single-Tab Sheet CSV with columns:
+ * Tournament, Date, Rank, Player Name, Game ID (UID), Title Won, Prizes Won
+ */
+function parseSheetCsv(csvText) {
+  const lines = csvText.trim().split(/\r?\n/);
+  if (lines.length < 2) return null;
+
+  const rows = [];
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line) continue;
+    const cols = line.split(',').map(c => c.trim().replace(/^["']|["']$/g, ''));
+    if (cols.length >= 5) {
+      const tour = cols[0] || 'Saturday';
+      rows.push({
+        tournament: tour,
+        tournamentName: tour.toLowerCase().includes('tour') ? tour : `${tour} Tournament`,
+        date: cols[1] || '',
+        rank: cols[2] || '',
+        rankBadge: (cols[2] || '').includes('1') ? 'CHAMPION' : ((cols[2] || '').includes('2') ? 'RUNNER UP' : 'SEMI-FINALIST'),
+        player: cols[3] || '',
+        uid: cols[4] || '',
+        title: cols[5] && cols[5] !== '-' ? cols[5] : null,
+        rewards: cols[6] || '',
+        status: 'Verified'
+      });
+    }
+  }
+  return rows;
 }
