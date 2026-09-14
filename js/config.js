@@ -692,6 +692,11 @@ window.SURVIVOR_CONFIG = {
   // Sheet: https://docs.google.com/spreadsheets/d/1Prd6LYqlt9SssBkA6dRhjvR_-HG8Qajno6lKe9_4Uy0
   sheetSync: {
     enabled: true,
-    sheetCsvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRrxH8IW-eoI77YRoVXfTFvvfIJlyfOW7b28GmMRytSDf1uJXD1M7ibFTTdslWJeWnlszEjnw6Cxrz9/pub?gid=0&single=true&output=csv"
+    // Winners tab (gid=0) — add rows here to show on the tournament winners section
+    sheetCsvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRrxH8IW-eoI77YRoVXfTFvvfIJlyfOW7b28GmMRytSDf1uJXD1M7ibFTTdslWJeWnlszEjnw6Cxrz9/pub?gid=0&single=true&output=csv",
+    // Tournaments tab — set this once you create the tab and share its GID
+    // Columns: Type, Tournament Name, Date & Time, Channel Link, Banner Link, Status
+    // Replace TOURNAMENTS_GID below with the actual gid number from the sheet URL
+    tournamentsCsvUrl: ""
   }
 };

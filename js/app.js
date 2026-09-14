@@ -12,6 +12,7 @@ function initApp() {
   initPosterGallery();
   initInspectProtection();
   initTournamentWinners();
+  initTournamentCards();
 }
 
 if (document.readyState === 'loading') {
@@ -842,6 +843,7 @@ function initTournamentWinners() {
 
         <div class="winner-player-info">
           <div class="winner-player-handle">${escapeHtml(winner.player)}</div>
+          ${winner.specificName ? `<div class="winner-specific-tournament" style="font-size:0.78rem; color: var(--text-muted); margin-top: 2px; font-style: italic; letter-spacing: 0.03em;">🏆 ${escapeHtml(winner.specificName)}</div>` : ''}
           <div class="winner-date-edition">${escapeHtml(winner.date || 'Certified Tournament Record')}</div>
         </div>
 
@@ -925,8 +927,8 @@ function initTournamentWinners() {
 }
 
 /**
- * Parse Single-Tab Sheet CSV with columns:
- * Tournament, Date, Rank, Player Name, Game ID (UID), Title Won, Prizes Won
+ * Parse Winners Sheet CSV
+ * Columns: Tournament, Date, Rank, Player Name, Game ID, Title Won, Prizes Won, Tournament Name (optional)
  */
 function parseSheetCsv(csvText) {
   const lines = csvText.trim().split(/\r?\n/);
@@ -939,9 +941,11 @@ function parseSheetCsv(csvText) {
     const cols = line.split(',').map(c => c.trim().replace(/^["']|["']$/g, ''));
     if (cols.length >= 5) {
       const tour = cols[0] || 'Saturday';
+      const specificName = (cols[7] && cols[7] !== '-') ? cols[7] : null;
       rows.push({
         tournament: tour,
         tournamentName: tour.toLowerCase().includes('tour') ? tour : `${tour} Tournament`,
+        specificName: specificName,
         date: cols[1] || '',
         rank: cols[2] || '',
         rankBadge: (cols[2] || '').includes('1') ? 'CHAMPION' : ((cols[2] || '').includes('2') ? 'RUNNER UP' : 'SEMI-FINALIST'),
@@ -954,4 +958,104 @@ function parseSheetCsv(csvText) {
     }
   }
   return rows;
+}
+
+/**
+ * Dynamically render Weekend Tournament Cards from Google Sheet (Tournaments tab)
+ * Columns: Type, Tournament Name, Date & Time, Channel Link, Banner Link, Status
+ * Falls back to static HTML cards if sheet is empty or unreachable.
+ */
+function initTournamentCards() {
+  const cfg = window.SURVIVOR_CONFIG || {};
+  if (!cfg.sheetSync || !cfg.sheetSync.tournamentsCsvUrl) return;
+
+  fetch(cfg.sheetSync.tournamentsCsvUrl)
+    .then(res => res.text())
+    .then(csvText => {
+      const cards = parseTournamentsCsv(csvText);
+      if (!cards || cards.length === 0) return;
+      renderTournamentCards(cards);
+    })
+    .catch(() => { /* silently keep static cards */ });
+}
+
+function parseTournamentsCsv(csvText) {
+  const lines = csvText.trim().split(/\r?\n/);
+  if (lines.length < 2) return null;
+  const rows = [];
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line) continue;
+    const cols = line.split(',').map(c => c.trim().replace(/^["']|["']$/g, ''));
+    if (cols.length >= 4) {
+      rows.push({
+        type:       cols[0] || '',
+        name:       cols[1] || '',
+        datetime:   cols[2] || '',
+        channelUrl: cols[3] || '#',
+        bannerUrl:  (cols[4] && cols[4] !== '-') ? cols[4] : null,
+        status:     (cols[5] || 'Open').toLowerCase().trim()
+      });
+    }
+  }
+  return rows;
+}
+
+function renderTournamentCards(cards) {
+  const grid = document.querySelector('.tournament-grid');
+  if (!grid) return;
+
+  const typeConfig = {
+    saturday: { badge: 'SATURDAY SERIES',     articleCls: 'highlight-gold',  dotCls: '',         badgeCls: 'gold',   btnCls: 'btn-outline-gold', label: '#saturday-tournament' },
+    sunday:   { badge: 'SUNDAY CHAMPIONSHIP',  articleCls: 'highlight-red',   dotCls: 'dot-red',  badgeCls: '',       btnCls: 'btn-primary',      label: '#sunday-tournament' },
+    monthly:  { badge: 'MONTHLY CHAMPIONSHIP', articleCls: 'highlight-cyan',  dotCls: 'dot-cyan', badgeCls: 'cyan',   btnCls: 'btn-outline-cyan',  label: '#monthly-tournament' }
+  };
+
+  grid.innerHTML = '';
+
+  cards.forEach(card => {
+    const key = card.type.toLowerCase();
+    const tc = typeConfig[key] || typeConfig.saturday;
+    const isOpen = card.status === 'open';
+    const statusBadge = isOpen
+      ? `<span class="tour-status-badge open">🟢 OPEN</span>`
+      : `<span class="tour-status-badge closed">🔴 CLOSED</span>`;
+
+    const bannerHtml = card.bannerUrl
+      ? `<img src="${escapeHtml(card.bannerUrl)}" alt="${escapeHtml(card.name)} Banner" class="tournament-card-banner" loading="lazy">`
+      : '';
+
+    const article = document.createElement('article');
+    article.className = `tournament-card ${tc.articleCls}`;
+    article.innerHTML = `
+      ${bannerHtml}
+      <div class="tournament-card-top">
+        <span class="tournament-badge-pill ${tc.badgeCls}">${tc.badge}</span>
+        <div style="display:flex;align-items:center;gap:8px;">
+          ${statusBadge}
+          <span class="live-dot ${tc.dotCls}"></span>
+        </div>
+      </div>
+      <h3 class="tournament-day">${escapeHtml(card.name || card.type + ' Tournament')}</h3>
+      <div class="tournament-meta">
+        <div class="meta-row">
+          <span>Registration:</span>
+          <strong>In Discord Only</strong>
+        </div>
+        ${card.datetime ? `<div class="meta-row"><span>Date & Time:</span><strong style="color:var(--accent-gold);">${escapeHtml(card.datetime)}</strong></div>` : ''}
+        <div class="meta-row">
+          <span>Channel:</span>
+          <strong>${tc.label}</strong>
+        </div>
+        <div class="meta-row">
+          <span>Prizes:</span>
+          <a href="prizes.html" style="color:var(--accent-gold);font-weight:700;text-decoration:none;font-size:0.85rem;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">View Prize Pool &rarr;</a>
+        </div>
+      </div>
+      <a href="${escapeHtml(card.channelUrl)}" target="_blank" rel="noopener noreferrer" class="btn ${tc.btnCls}" style="width:100%;${!isOpen ? 'opacity:0.55;pointer-events:none;' : ''}">
+        <span>${isOpen ? 'Register in Discord (' + tc.label + ')' : 'Registration Closed'}</span>
+      </a>
+    `;
+    grid.appendChild(article);
+  });
 }
