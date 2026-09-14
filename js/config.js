@@ -683,26 +683,15 @@ window.SURVIVOR_CONFIG = {
       concept: "Dedicated anti-submarine hunter-killer warfare matching specialized helicopter & surface fleets against wolfpacks."
     }
   ],
-  // Tournament Winners — Fully Dynamic from Google Sheet (Winners tab)
-  // Add winners directly in your Google Sheet; this array stays empty
+  // Tournament Winners — Fully Dynamic from Google Sheet (Winners tab only)
+  // Add winners in your Google Sheet → Winners tab; this array stays empty
   tournamentWinners: [],
-  // Live Sheet Sync Configuration — Published Google Sheet (All 5 Tabs)
-  // Edit your sheet at: https://docs.google.com/spreadsheets/d/1Prd6LYqlt9SssBkA6dRhjvR_-HG8Qajno6lKe9_4Uy0
+
+  // Sheet Sync — Only Winners tab is live. All other data is hardcoded below in config.js
+  // To update Staff / Links / Server Stats / Prizes: edit config.js directly
+  // Sheet: https://docs.google.com/spreadsheets/d/1Prd6LYqlt9SssBkA6dRhjvR_-HG8Qajno6lKe9_4Uy0
   sheetSync: {
     enabled: true,
-    baseUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRrxH8IW-eoI77YRoVXfTFvvfIJlyfOW7b28GmMRytSDf1uJXD1M7ibFTTdslWJeWnlszEjnw6Cxrz9/pub?output=csv",
-    tabs: {
-      winners:     { gid: "0",          name: "Winners" },
-      staff:       { gid: "394892988",  name: "Staff" },
-      serverStats: { gid: "1554586700", name: "Server Stats" },
-      links:       { gid: "1334760909", name: "Links" },
-      prizes:      { gid: "388596569",  name: "Prizes" }
-    },
-    // Convenience: direct CSV URLs per tab
-    sheetCsvUrl:        "https://docs.google.com/spreadsheets/d/e/2PACX-1vRrxH8IW-eoI77YRoVXfTFvvfIJlyfOW7b28GmMRytSDf1uJXD1M7ibFTTdslWJeWnlszEjnw6Cxrz9/pub?gid=0&single=true&output=csv",
-    staffCsvUrl:        "https://docs.google.com/spreadsheets/d/e/2PACX-1vRrxH8IW-eoI77YRoVXfTFvvfIJlyfOW7b28GmMRytSDf1uJXD1M7ibFTTdslWJeWnlszEjnw6Cxrz9/pub?gid=394892988&single=true&output=csv",
-    serverStatsCsvUrl:  "https://docs.google.com/spreadsheets/d/e/2PACX-1vRrxH8IW-eoI77YRoVXfTFvvfIJlyfOW7b28GmMRytSDf1uJXD1M7ibFTTdslWJeWnlszEjnw6Cxrz9/pub?gid=1554586700&single=true&output=csv",
-    linksCsvUrl:        "https://docs.google.com/spreadsheets/d/e/2PACX-1vRrxH8IW-eoI77YRoVXfTFvvfIJlyfOW7b28GmMRytSDf1uJXD1M7ibFTTdslWJeWnlszEjnw6Cxrz9/pub?gid=1334760909&single=true&output=csv",
-    prizesCsvUrl:       "https://docs.google.com/spreadsheets/d/e/2PACX-1vRrxH8IW-eoI77YRoVXfTFvvfIJlyfOW7b28GmMRytSDf1uJXD1M7ibFTTdslWJeWnlszEjnw6Cxrz9/pub?gid=388596569&single=true&output=csv"
+    sheetCsvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRrxH8IW-eoI77YRoVXfTFvvfIJlyfOW7b28GmMRytSDf1uJXD1M7ibFTTdslWJeWnlszEjnw6Cxrz9/pub?gid=0&single=true&output=csv"
   }
 };
