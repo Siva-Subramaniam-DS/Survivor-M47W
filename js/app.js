@@ -927,6 +927,34 @@ function initTournamentWinners() {
 }
 
 /**
+/**
+ * Robust CSV Line Parser (handles quoted fields with commas, quotes, and newlines)
+ */
+function splitCsvLine(line) {
+  const result = [];
+  let current = '';
+  let inQuotes = false;
+  for (let i = 0; i < line.length; i++) {
+    const char = line[i];
+    if (char === '"') {
+      if (inQuotes && line[i + 1] === '"') {
+        current += '"';
+        i++;
+      } else {
+        inQuotes = !inQuotes;
+      }
+    } else if (char === ',' && !inQuotes) {
+      result.push(current.trim().replace(/^["']|["']$/g, ''));
+      current = '';
+    } else {
+      current += char;
+    }
+  }
+  result.push(current.trim().replace(/^["']|["']$/g, ''));
+  return result;
+}
+
+/**
  * Parse Winners Sheet CSV
  * Columns: Tournament, Date, Rank, Player Name, Game ID, Title Won, Prizes Won, Tournament Name (optional)
  */
@@ -938,7 +966,7 @@ function parseSheetCsv(csvText) {
   for (let i = 1; i < lines.length; i++) {
     const line = lines[i].trim();
     if (!line) continue;
-    const cols = line.split(',').map(c => c.trim().replace(/^["']|["']$/g, ''));
+    const cols = splitCsvLine(line);
     if (cols.length >= 5) {
       const tour = cols[0] || 'Saturday';
       const specificName = (cols[7] && cols[7] !== '-') ? cols[7] : null;
@@ -976,7 +1004,9 @@ function initTournamentCards() {
       if (!cards || cards.length === 0) return;
       renderTournamentCards(cards);
     })
-    .catch(() => { /* silently keep static cards */ });
+    .catch(err => {
+      console.warn('Live tournament cards fallback to static:', err);
+    });
 }
 
 function parseTournamentsCsv(csvText) {
@@ -986,14 +1016,14 @@ function parseTournamentsCsv(csvText) {
   for (let i = 1; i < lines.length; i++) {
     const line = lines[i].trim();
     if (!line) continue;
-    const cols = line.split(',').map(c => c.trim().replace(/^["']|["']$/g, ''));
-    if (cols.length >= 4) {
+    const cols = splitCsvLine(line);
+    if (cols.length >= 2 && cols[0]) {
       rows.push({
         type:       cols[0] || '',
         name:       cols[1] || '',
         datetime:   cols[2] || '',
-        channelUrl: cols[3] || '#',
-        bannerUrl:  (cols[4] && cols[4] !== '-') ? cols[4] : null,
+        channelUrl: cols[3] || '',
+        bannerUrl:  (cols[4] && cols[4] !== '-' && cols[4].startsWith('http')) ? cols[4] : null,
         status:     (cols[5] || 'Open').toLowerCase().trim()
       });
     }
@@ -1005,55 +1035,113 @@ function renderTournamentCards(cards) {
   const grid = document.querySelector('.tournament-grid');
   if (!grid) return;
 
-  const typeConfig = {
-    saturday: { badge: 'SATURDAY SERIES',     articleCls: 'highlight-gold',  dotCls: '',         badgeCls: 'gold',   btnCls: 'btn-outline-gold', label: '#saturday-tournament' },
-    sunday:   { badge: 'SUNDAY CHAMPIONSHIP',  articleCls: 'highlight-red',   dotCls: 'dot-red',  badgeCls: '',       btnCls: 'btn-primary',      label: '#sunday-tournament' },
-    monthly:  { badge: 'MONTHLY CHAMPIONSHIP', articleCls: 'highlight-cyan',  dotCls: 'dot-cyan', badgeCls: 'cyan',   btnCls: 'btn-outline-cyan',  label: '#monthly-tournament' }
+  // Defaults for all 3 cards so incomplete rows in sheet don't break the layout
+  const tournamentState = {
+    saturday: {
+      type: 'Saturday',
+      badge: 'SATURDAY SERIES',
+      name: 'Saturday Tournament',
+      desc: 'Weekly Saturday tournament with designated squad sizes, tier caps, and intense knockout matches. Register inside the official channel.',
+      datetime: '',
+      channelUrl: 'https://discord.com/channels/1050414982417887283/1210456226505170964',
+      bannerUrl: null,
+      status: 'open',
+      articleCls: 'highlight-gold',
+      dotCls: '',
+      badgeCls: 'gold',
+      btnCls: 'btn-outline-gold',
+      label: '#saturday-tournament',
+      btnText: 'Register in Discord (#saturday)'
+    },
+    sunday: {
+      type: 'Sunday',
+      badge: 'SUNDAY CHAMPIONSHIP',
+      name: 'Sunday Tournament',
+      desc: 'Premier Sunday championship cup where top squads compete for glory, high-tier prizes, and leaderboard points. Register inside the official channel.',
+      datetime: '',
+      channelUrl: 'https://discord.com/channels/1050414982417887283/1051428633106972762',
+      bannerUrl: null,
+      status: 'open',
+      articleCls: 'highlight-red',
+      dotCls: 'dot-red',
+      badgeCls: '',
+      btnCls: 'btn-primary',
+      label: '#sunday-tournament',
+      btnText: 'Register in Discord (#sunday)'
+    },
+    monthly: {
+      type: 'Monthly',
+      badge: 'MONTHLY CHAMPIONSHIP',
+      name: 'Monthly Tournament',
+      desc: 'Flagship monthly championship series featuring elite squad brackets, high-tier competition, and certified awards. Register inside the official channel.',
+      datetime: '',
+      channelUrl: 'https://discord.com/channels/1050414982417887283/1051428633106972762',
+      bannerUrl: null,
+      status: 'open',
+      articleCls: 'highlight-cyan',
+      dotCls: 'dot-cyan',
+      badgeCls: 'cyan',
+      btnCls: 'btn-outline-cyan',
+      label: '#monthly-tournament',
+      btnText: 'Register in Discord (#monthly)'
+    }
   };
+
+  // Merge row data from Google Sheet into tournamentState
+  cards.forEach(card => {
+    const key = (card.type || '').toLowerCase().trim();
+    if (tournamentState[key]) {
+      if (card.name && card.name.trim()) tournamentState[key].name = card.name.trim();
+      if (card.datetime && card.datetime.trim()) tournamentState[key].datetime = card.datetime.trim();
+      if (card.channelUrl && card.channelUrl.startsWith('http')) tournamentState[key].channelUrl = card.channelUrl.trim();
+      if (card.bannerUrl) tournamentState[key].bannerUrl = card.bannerUrl.trim();
+      if (card.status) tournamentState[key].status = card.status.toLowerCase().trim();
+    }
+  });
 
   grid.innerHTML = '';
 
-  cards.forEach(card => {
-    const key = card.type.toLowerCase();
-    const tc = typeConfig[key] || typeConfig.saturday;
-    const isOpen = card.status === 'open';
+  ['saturday', 'sunday', 'monthly'].forEach(key => {
+    const item = tournamentState[key];
+    const isOpen = item.status === 'open';
     const statusBadge = isOpen
       ? `<span class="tour-status-badge open">🟢 OPEN</span>`
       : `<span class="tour-status-badge closed">🔴 CLOSED</span>`;
 
-    const bannerHtml = card.bannerUrl
-      ? `<img src="${escapeHtml(card.bannerUrl)}" alt="${escapeHtml(card.name)} Banner" class="tournament-card-banner" loading="lazy">`
+    const bannerHtml = item.bannerUrl
+      ? `<img src="${escapeHtml(item.bannerUrl)}" alt="${escapeHtml(item.name)} Banner" class="tournament-card-banner" loading="lazy" onerror="this.style.display='none'">`
       : '';
 
     const article = document.createElement('article');
-    article.className = `tournament-card ${tc.articleCls}`;
+    article.className = `tournament-card ${item.articleCls}`;
     article.innerHTML = `
       ${bannerHtml}
       <div class="tournament-card-top">
-        <span class="tournament-badge-pill ${tc.badgeCls}">${tc.badge}</span>
+        <span class="tournament-badge-pill ${item.badgeCls}">${item.badge}</span>
         <div style="display:flex;align-items:center;gap:8px;">
           ${statusBadge}
-          <span class="live-dot ${tc.dotCls}"></span>
+          <span class="live-dot ${item.dotCls}"></span>
         </div>
       </div>
-      <h3 class="tournament-day">${escapeHtml(card.name || card.type + ' Tournament')}</h3>
+      <h3 class="tournament-day">${escapeHtml(item.name)}</h3>
+      ${!item.bannerUrl && item.desc ? `<p class="tournament-desc">${escapeHtml(item.desc)}</p>` : ''}
       <div class="tournament-meta">
         <div class="meta-row">
           <span>Registration:</span>
           <strong>In Discord Only</strong>
         </div>
-        ${card.datetime ? `<div class="meta-row"><span>Date & Time:</span><strong style="color:var(--accent-gold);">${escapeHtml(card.datetime)}</strong></div>` : ''}
+        ${item.datetime ? `<div class="meta-row"><span>Date & Time:</span><strong style="color:var(--accent-gold);">${escapeHtml(item.datetime)}</strong></div>` : ''}
         <div class="meta-row">
           <span>Channel:</span>
-          <strong>${tc.label}</strong>
+          <strong>${item.label}</strong>
         </div>
         <div class="meta-row">
           <span>Prizes:</span>
           <a href="prizes.html" style="color:var(--accent-gold);font-weight:700;text-decoration:none;font-size:0.85rem;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">View Prize Pool &rarr;</a>
         </div>
       </div>
-      <a href="${escapeHtml(card.channelUrl)}" target="_blank" rel="noopener noreferrer" class="btn ${tc.btnCls}" style="width:100%;${!isOpen ? 'opacity:0.55;pointer-events:none;' : ''}">
-        <span>${isOpen ? 'Register in Discord (' + tc.label + ')' : 'Registration Closed'}</span>
+      <a href="${escapeHtml(item.channelUrl)}" target="_blank" rel="noopener noreferrer" class="btn ${item.btnCls}" style="width:100%;${!isOpen ? 'opacity:0.55;pointer-events:none;' : ''}">
+        <span>${isOpen ? item.btnText : 'Registration Closed'}</span>
       </a>
     `;
     grid.appendChild(article);

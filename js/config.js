@@ -694,9 +694,8 @@ window.SURVIVOR_CONFIG = {
     enabled: true,
     // Winners tab (gid=0) — add rows here to show on the tournament winners section
     sheetCsvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRrxH8IW-eoI77YRoVXfTFvvfIJlyfOW7b28GmMRytSDf1uJXD1M7ibFTTdslWJeWnlszEjnw6Cxrz9/pub?gid=0&single=true&output=csv",
-    // Tournaments tab — set this once you create the tab and share its GID
+    // Tournaments tab (gid=1569294842)
     // Columns: Type, Tournament Name, Date & Time, Channel Link, Banner Link, Status
-    // Replace TOURNAMENTS_GID below with the actual gid number from the sheet URL
-    tournamentsCsvUrl: ""
+    tournamentsCsvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRrxH8IW-eoI77YRoVXfTFvvfIJlyfOW7b28GmMRytSDf1uJXD1M7ibFTTdslWJeWnlszEjnw6Cxrz9/pub?gid=1569294842&single=true&output=csv"
   }
 };
